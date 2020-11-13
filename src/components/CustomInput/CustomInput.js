@@ -14,6 +14,7 @@ import styles from "assets/jss/material-kit-react/components/customInputStyle.js
 const useStyles = makeStyles(styles);
 
 export default function CustomInput(props) {
+  console.log('hello', props)
   const classes = useStyles();
   const {
     formControlProps,
@@ -24,7 +25,8 @@ export default function CustomInput(props) {
     error,
     white,
     inputRootCustomClasses,
-    success
+    success,
+    onHandleChange
   } = props;
 
   const labelClasses = classNames({
@@ -58,6 +60,7 @@ export default function CustomInput(props) {
       {labelText !== undefined ? (
         <InputLabel
           className={classes.labelRoot + " " + labelClasses}
+
           htmlFor={id}
           {...labelProps}
         >
@@ -72,6 +75,7 @@ export default function CustomInput(props) {
           underline: underlineClasses
         }}
         id={id}
+        onChange={(value) => onHandleChange(value)}
         {...inputProps}
       />
     </FormControl>
