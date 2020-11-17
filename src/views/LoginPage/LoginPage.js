@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { login } from 'Services/Authentication'
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -14,7 +15,7 @@ import CardHeader from "components/Card/CardHeader.js";
 import CardFooter from "components/Card/CardFooter.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import styles from "assets/jss/material-kit-react/views/loginPage.js";
-
+// import NotificationAlert from "react-notification-alert";
 import image from "assets/img/bg7.jpg";
 
 const useStyles = makeStyles(styles);
@@ -28,6 +29,9 @@ export default function LoginPage(props) {
   const [password, setPassword] = useState('');
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
+  const [state, setuseState] = useState('');
+  const [isLoading, setisLoading] = useState('');
+  const [responseError, setresponseError] = useState('');
   setTimeout(function () {
     setCardAnimation("");
   }, 700);
@@ -46,27 +50,61 @@ export default function LoginPage(props) {
       setEmailError("invalid Email")
     }
     else if (password.length < 5) {
+      passwordError("Invalid Password")
 
-      this.State(
-        { passwordError: "Invalid Password" }
-      )
     }
     else {
 
       return true
     }
   }
-  const submit = () => {
-    if (valid()) {
 
-      console.log('hello')
+  const getdata = async () => {
+    const data = {
+      Email: email,
+      password: password // This is the body part
+    }
+    const loginResult = await login(data);
+    return loginResult;
+
+
+  };
+
+  const submit = async () => {
+
+
+
+    setisLoading("true")
+
+
+
+    if (valid()) {
+      const result = await getdata()
+      console.log('hello', result)
+      localStorage.setItem('Token', result.token);
+
+
+      if (result && result.message == "User Authenticated") {
+
+
+
+        setisLoading("false")
+
+
+        this.props.history.push('/admin/Dashboard')
+      } else {
+        // this.notify(result.message, "danger")
+
+
+        setresponseError("result.message")
+        setisLoading("false")
+
+      }
     }
   }
 
-
   return (
-    <div>
-
+    <div className="content" style={{ textAlign: "center" }}>
       <div
         className={classes.pageHeader}
         style={{
@@ -168,3 +206,4 @@ export default function LoginPage(props) {
     </div>
   );
 }
+

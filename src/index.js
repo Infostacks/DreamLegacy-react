@@ -13,27 +13,33 @@ import SignUpPage from "views/Signup";
 import DataTable from "views/Groups/index"
 var hist = createBrowserHistory();
 
+// const PrivateRoute = ({ component: component, ...rest }) => (
 
-const PrivateRoute = ({ component: component, ...rest }) => (
+//   <Route {...rest} render={() => (
+//     localStorage.getItem('Token') != null ?
+//       <Route path="/admin" render={props => <Dash {...props} />} />
+//       :
+//       <Redirect to='/login' />
+//   )
+//   } />
+// )
 
-  <Route {...rest} render={() => (
-    localStorage.getItem('Token') != null ?
-      <Route path="/admin" render={props => <Dash {...props} />} />
-      :
-      <Redirect to='/login' />
-  )
-  } />
+const PrivateRoute = ({ component: component, path: path }) => (
+  localStorage.getItem('Token') != null ?
+    <Route path={path} component={component} /> :
+
+    <Redirect to="/login" />
 )
 
 ReactDOM.render(
   <Router history={hist}>
     <Switch>
+      <Route path="/login" component={LoginPage} />
       <PrivateRoute path="/landing-page" component={LandingPage} />
       <PrivateRoute path="/profile-page" component={ProfilePage} />
       <PrivateRoute path="/Signup" component={SignUpPage} />
       <PrivateRoute path="/admin" component={Dash} />
       <PrivateRoute path="/Group" component={DataTable} />
-      <PrivateRoute path="/login" component={LoginPage} />
       <PrivateRoute path="/" component={Components} />
     </Switch>
   </Router>,
