@@ -39,7 +39,6 @@ export default function LoginPage(props) {
   const { ...rest } = props;
 
   const valid = () => {
-    console.log('hi', email)
     if (!email.includes('@')) {
       setEmailError("invalid Email")
     }
@@ -65,6 +64,7 @@ export default function LoginPage(props) {
       password: password // This is the body part
     }
     const loginResult = await login(data);
+    console.log('hello login result', loginResult)
     return loginResult;
 
 
@@ -82,8 +82,6 @@ export default function LoginPage(props) {
       const result = await getdata()
       console.log('hello', result)
       localStorage.setItem('Token', result.token);
-
-
       if (result && result.message == "User Authenticated") {
 
 
@@ -91,7 +89,7 @@ export default function LoginPage(props) {
         setisLoading("false")
 
 
-        this.props.history.push('/admin/Dashboard')
+        props.history.push('/admin/Dashboard')
       } else {
         // this.notify(result.message, "danger")
 

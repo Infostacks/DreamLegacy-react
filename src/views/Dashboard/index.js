@@ -25,9 +25,17 @@ import styles from "assets/jss/material-kit-react/views/componentsSections/navba
 
 const useStyles = makeStyles(styles);
 
-export default function Dash() {
+
+export default function Dash(props) {
     const classes = useStyles();
+    const logout = () => {
+        console.log('hello')
+        localStorage.removeItem('Token');
+        props.history.push('/login');
+
+    };
     return (
+
         <div className={classes.section}>
             <div className={classes.container}>
 
@@ -112,9 +120,10 @@ export default function Dash() {
                                         dropdownList={[
                                             "Admin",
                                             "Settings ",
-                                            "Sign out"
+                                            <Button onClick={() => logout()}>Signout</Button>
                                         ]}
                                     />
+
                                 </ListItem>
                             </List>
                         }
