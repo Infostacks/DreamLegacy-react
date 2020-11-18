@@ -1,9 +1,11 @@
 import React, { useState } from "react";
-import { login } from 'Services/Authentication'
+import { login } from 'Services/Authentication';
+
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
+
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -68,6 +70,10 @@ export default function LoginPage(props) {
     return loginResult;
 
 
+  };
+
+  const register = () => {
+    props.history.push('/signup')
   };
 
   const submit = async () => {
@@ -193,6 +199,9 @@ export default function LoginPage(props) {
                   <CardFooter className={classes.cardFooter}>
                     <Button simple color="primary" size="lg" onClick={() => submit()}>
                       LOGIN
+                    </Button>
+                    <Button simple color="primary" size="lg" onClick={() => register()}>
+                      Signup
                     </Button>
                   </CardFooter>
                 </form>

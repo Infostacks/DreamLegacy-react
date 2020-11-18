@@ -37,10 +37,10 @@ ReactDOM.render(
       <Route path="/login" component={LoginPage} />
       <PrivateRoute path="/landing-page" component={LandingPage} />
       <PrivateRoute path="/profile-page" component={ProfilePage} />
-      <PrivateRoute path="/Signup" component={SignUpPage} />
+      <Route path="/signup" component={SignUpPage} />
       <PrivateRoute path="/admin" component={Dash} />
       <PrivateRoute path="/Group" component={DataTable} />
-      <PrivateRoute path="/" component={Components} />
+      <Route path="/" component={Components} />
     </Switch>
   </Router>,
   document.getElementById("root")
