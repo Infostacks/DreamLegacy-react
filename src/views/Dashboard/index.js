@@ -17,7 +17,7 @@ import Header from "components/Header/Header.js";
 import CustomInput from "components/CustomInput/CustomInput.js";
 import CustomDropdown from "components/CustomDropdown/CustomDropdown.js";
 import Button from "components/CustomButtons/Button.js";
-
+import { useHistory } from "react-router-dom";
 import image from "assets/img/bg.jpg";
 import profileImage from "assets/img/faces/avatar.jpg";
 
@@ -26,7 +26,15 @@ import styles from "assets/jss/material-kit-react/views/componentsSections/navba
 const useStyles = makeStyles(styles);
 
 
+
 export default function Dash(props) {
+    const history = useHistory();
+
+  const routeChange = () =>{ 
+    let path = `/Groups`; 
+    history.push(path);
+  }
+    
     const classes = useStyles();
     const logout = () => {
         console.log('hello')
@@ -68,7 +76,7 @@ export default function Dash(props) {
                                     <Button
                                         href="#pablo"
                                         className={classes.navLink}
-                                        onClick={e => e.preventDefault()}
+                                        onClick={routeChange} 
                                         color="transparent"
                                     >
                                         Groups

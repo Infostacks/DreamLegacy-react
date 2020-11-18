@@ -39,7 +39,7 @@ ReactDOM.render(
       <PrivateRoute path="/profile-page" component={ProfilePage} />
       <PrivateRoute path="/Signup" component={SignUpPage} />
       <PrivateRoute path="/admin" component={Dash} />
-      <PrivateRoute path="/Group" component={DataTable} />
+      <PrivateRoute path="/Groups" component={DataTable} />
       <PrivateRoute path="/" component={Components} />
     </Switch>
   </Router>,
