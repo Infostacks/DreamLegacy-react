@@ -26,7 +26,9 @@ export default function CustomInput(props) {
     white,
     inputRootCustomClasses,
     success,
+    Myerror,
     onHandleChange
+
   } = props;
 
   const labelClasses = classNames({
@@ -55,6 +57,7 @@ export default function CustomInput(props) {
   } else {
     formControlClasses = classes.formControl;
   }
+
   return (
     <FormControl {...formControlProps} className={formControlClasses}>
       {labelText !== undefined ? (
@@ -78,6 +81,7 @@ export default function CustomInput(props) {
         onChange={(value) => onHandleChange(value)}
         {...inputProps}
       />
+      <p>{error}</p>
     </FormControl>
   );
 }
@@ -89,7 +93,7 @@ CustomInput.propTypes = {
   inputProps: PropTypes.object,
   formControlProps: PropTypes.object,
   inputRootCustomClasses: PropTypes.string,
-  error: PropTypes.bool,
+  error: PropTypes.string,
   success: PropTypes.bool,
   white: PropTypes.bool
 };

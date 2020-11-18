@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -27,12 +27,45 @@ const useStyles = makeStyles(styles);
 
 export default function SignUpPage(props) {
     const [cardAnimaton, setCardAnimation] = React.useState("cardHidden");
+    const [email, setEmail] = React.useState('Enter Your Email');
+    const [password, setPassword] = useState('');
+    const [passwordError, setPasswordError] = React.useState('');
+    const [emailError, setEmailError] = React.useState('');
+    const [firstname, setFirstname] = useState('');
+    const [lastname, setLastname] = useState('');
+    const [confirmpassword, setConfirmPassword] = React.useState('Enter Your Email');
     setTimeout(function () {
         setCardAnimation("");
     }, 700);
     const classes = useStyles();
     const { ...rest } = props;
+
+    const register = () => {
+        if (!email.includes('@')) {
+            setEmailError("invalid Email")
+        }
+        else if (!email.includes("@")) {
+            setEmailError("invalid Email")
+        }
+        else if (!email.includes(".com")) {
+            setEmailError("invalid Email")
+        }
+        else if (password.length < 5) {
+            setPasswordError("Invalid Password")
+
+        }
+        else if (password != confirmpassword) {
+            setPasswordError("Password not matched")
+        }
+        else {
+
+            console.log('everything alright')
+        }
+    }
+
+
     return (
+
         <div>
             <div
                 className={classes.pageHeader}
@@ -87,6 +120,8 @@ export default function SignUpPage(props) {
                                             formControlProps={{
                                                 fullWidth: true
                                             }}
+                                            value={firstname}
+                                            onHandleChange={(event) => setFirstname(event.target.value)}
                                             inputProps={{
                                                 type: "text",
                                                 endAdornment: (
@@ -102,6 +137,8 @@ export default function SignUpPage(props) {
                                             formControlProps={{
                                                 fullWidth: true
                                             }}
+                                            value={lastname}
+                                            onHandleChange={(event) => setLastname(event.target.value)}
                                             inputProps={{
                                                 type: "text",
                                                 endAdornment: (
@@ -117,6 +154,8 @@ export default function SignUpPage(props) {
                                             formControlProps={{
                                                 fullWidth: true
                                             }}
+                                            value={email}
+                                            onHandleChange={(event) => setEmail(event.target.value)}
                                             inputProps={{
                                                 type: "email",
                                                 endAdornment: (
@@ -132,6 +171,9 @@ export default function SignUpPage(props) {
                                             formControlProps={{
                                                 fullWidth: true
                                             }}
+                                            value={password}
+                                            error={passwordError}
+                                            onHandleChange={(event) => setPassword(event.target.value)}
                                             inputProps={{
                                                 type: "password",
                                                 endAdornment: (
@@ -144,11 +186,32 @@ export default function SignUpPage(props) {
                                                 autoComplete: "off"
                                             }}
                                         />
+                                        <CustomInput
+                                            labelText="Confirm Password"
+                                            id="pass"
+                                            formControlProps={{
+                                                fullWidth: true
+                                            }}
+                                            value={confirmpassword}
+                                            onHandleChange={(event) => setConfirmPassword(event.target.value)}
+                                            inputProps={{
+                                                type: "password",
+                                                endAdornment: (
+                                                    <InputAdornment position="end">
+                                                        <Icon className={classes.inputIconsColor}>
+                                                            lock_outline
+                            </Icon>
+                                                    </InputAdornment>
+                                                ),
+                                                autoComplete: "off"
+                                            }}
+                                        />
+
                                     </CardBody>
                                     <CardFooter className={classes.cardFooter}>
 
-                                        <Button simple color="primary" size="lg">
-                                            SIGNUP
+                                        <Button simple color="primary" size="lg" onClick={() => register()}>
+                                            Register
                     </Button>
                                     </CardFooter>
                                 </form>
