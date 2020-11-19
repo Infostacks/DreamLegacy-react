@@ -29,7 +29,7 @@ const useStyles = makeStyles(styles);
 
 
 
-export default function Dash(props) {
+export default function DashWithSidebar(props) {
     const history = useHistory();
 
     const routeChange = () =>{ ; 
@@ -136,7 +136,8 @@ export default function Dash(props) {
                                 </ListItem>
                             </List>
                         }
-                    />      
+                    />
+                    <ResponsiveDrawer/>  
                 </div>
             </div>
         </div>
