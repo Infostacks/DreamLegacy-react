@@ -21,7 +21,9 @@ import { useHistory } from "react-router-dom";
 import image from "assets/img/bg.jpg";
 import profileImage from "assets/img/faces/avatar.jpg";
 
+
 import styles from "assets/jss/material-kit-react/views/componentsSections/navbarsStyle.js";
+import ResponsiveDrawer from "components/Sidebar";
 
 const useStyles = makeStyles(styles);
 
@@ -30,9 +32,8 @@ const useStyles = makeStyles(styles);
 export default function Dash(props) {
     const history = useHistory();
 
-  const routeChange = () =>{ 
-    let path = `/Groups`; 
-    history.push(path);
+    const routeChange = () =>{ ; 
+    history.push('/Group');
   }
     
     const classes = useStyles();
@@ -43,10 +44,10 @@ export default function Dash(props) {
 
     };
     return (
-
+        
         <div className={classes.section}>
             <div className={classes.container}>
-
+        
                 <div className={classes.title} style={{ textAlign: "center" }}>
                     <h1>Admin Panel</h1>
                 </div>
@@ -74,7 +75,7 @@ export default function Dash(props) {
                                 </ListItem>
                                 <ListItem className={classes.listItem}>
                                     <Button
-                                        href="#pablo"
+                                        href=""
                                         className={classes.navLink}
                                         onClick={routeChange} 
                                         color="transparent"
@@ -136,7 +137,8 @@ export default function Dash(props) {
                             </List>
                         }
                     />
-
+                  
+                 <ResponsiveDrawer/>
                 </div>
             </div>
         </div>
