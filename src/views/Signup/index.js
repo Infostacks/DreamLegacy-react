@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { signup } from 'Services/Authentication';
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
@@ -31,16 +32,17 @@ export default function SignUpPage(props) {
     const [password, setPassword] = useState('');
     const [passwordError, setPasswordError] = React.useState('');
     const [emailError, setEmailError] = React.useState('');
+    const [isLoading, setisLoading] = useState('');
     const [firstname, setFirstname] = useState('');
     const [lastname, setLastname] = useState('');
+    const [responseError, setresponseError] = useState('');
     const [confirmpassword, setConfirmPassword] = React.useState('Enter Your Email');
     setTimeout(function () {
         setCardAnimation("");
     }, 700);
     const classes = useStyles();
     const { ...rest } = props;
-
-    const register = () => {
+    const valid = async () => {
         if (!email.includes('@')) {
             setEmailError("invalid Email")
         }
@@ -58,10 +60,54 @@ export default function SignUpPage(props) {
             setPasswordError("Password not matched")
         }
         else {
-
-            console.log('everything alright')
+            return true;
         }
     }
+
+
+
+    const getdata = async () => {
+        const data = {
+            firstname: firstname,
+            lastname: lastname,
+            email: email,
+            password: password,
+            confirmpassword: confirmpassword // This is the body part
+        }
+        const signupResult = await signup(data);
+        console.log('hello login result', signupResult)
+        return signupResult;
+
+
+    };
+    const register = async () => {
+
+        setisLoading("true")
+
+
+        if (valid()) {
+            const result = await getdata()
+            console.log('hello', result)
+            localStorage.setItem('Token', result.token);
+            if (result && result.message == "User Authenticated") {
+
+
+
+                setisLoading("false")
+
+
+                // props.history.push('/admin/Dashboard')
+            } else {
+                // this.notify(result.message, "danger")
+
+
+                setresponseError("result.message")
+                setisLoading("false")
+
+            }
+        }
+    }
+
 
 
     return (

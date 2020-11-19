@@ -15,3 +15,17 @@ export const login = (data) => {
     ))
 }
 
+export const signup = (data) => {
+    return axios.request({
+        method: 'POST',
+        url: 'http://localhost:8000/profiles/add',
+        headers: {
+            'Access-Control-Allow-Origin': '*',
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        },
+        params: data
+    }).then(response => (
+        response.data
+    ))
+}
