@@ -34,6 +34,9 @@ export default function Dash(props) {
         props.history.push('/login');
 
     };
+    const Users = () => {
+        props.history.push('/Users')
+    };
     return (
 
         <div className={classes.section}>
@@ -56,17 +59,17 @@ export default function Dash(props) {
                             <List className={classes.list}>
                                 <ListItem className={classes.listItem}>
                                     <Button
-                                        href="#pablo"
                                         className={classes.navLink}
-                                        onClick={e => e.preventDefault()}
+                                        onClick={() => Users()}
                                         color="transparent"
+
                                     >
                                         Users
                   </Button>
                                 </ListItem>
                                 <ListItem className={classes.listItem}>
                                     <Button
-                                        href="#pablo"
+
                                         className={classes.navLink}
                                         onClick={e => e.preventDefault()}
                                         color="transparent"

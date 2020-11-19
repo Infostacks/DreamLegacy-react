@@ -4,6 +4,7 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect } from "react-router-dom";
 import "assets/scss/material-kit-react.scss?v=1.9.0";
 import Dash from "views/Dashboard/index";
+import Users from "./views/Users/User";
 // pages for this product
 import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
@@ -39,6 +40,7 @@ ReactDOM.render(
       <PrivateRoute path="/profile-page" component={ProfilePage} />
       <Route path="/signup" component={SignUpPage} />
       <PrivateRoute path="/admin" component={Dash} />
+      <PrivateRoute path="/Users" component={Users} />
       <PrivateRoute path="/Group" component={DataTable} />
       <Route path="/" component={Components} />
     </Switch>
