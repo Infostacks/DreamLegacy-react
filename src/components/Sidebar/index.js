@@ -1,6 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import AppBar from '@material-ui/core/AppBar';
+import AppBar from '@material-ui/core/AppBar';  
+import Paper from '@material-ui/core/Paper';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import Divider from '@material-ui/core/Divider';
 import Drawer from '@material-ui/core/Drawer';
@@ -16,6 +17,7 @@ import MenuIcon from '@material-ui/icons/Menu';
 import Toolbar from '@material-ui/core/Toolbar';
 import Typography from '@material-ui/core/Typography';
 import { makeStyles, useTheme } from '@material-ui/core/styles';
+import FormDialog from "components/Dialogs";
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 
 const drawerWidth = 240;
@@ -70,15 +72,17 @@ function ResponsiveDrawer(props) {
 
   const drawer = (
     <div>
-      
+      <div>  
       <List>
-        {['Group 1', 'Group 2', 'Group 3', 'Group 4', 'Group 5' , 'Group 6', 'Group 7'].map((text, index) => (
-          <ListItem button key={text}>
-            <ListItemIcon>{index % 2 === 0 ? <AccountCircleIcon /> : <AccountCircleIcon />}</ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+      <ListItem button onClick={() => alert("i work")}>
+      <ListItemIcon><AccountCircleIcon/></ListItemIcon>
+      <ListItemText>Group 1</ListItemText>         
+      </ListItem>
       </List>
+      </div>
+      <div>
+      <FormDialog/>
+      </div>
     </div>
   );
 

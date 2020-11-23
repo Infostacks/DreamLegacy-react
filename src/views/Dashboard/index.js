@@ -80,7 +80,7 @@ export default function Dash(props) {
                                         onClick={routeChange} 
                                         color="transparent"
                                     >
-                                        Groups
+                                        Pools
                   </Button>
                                 </ListItem>
                                 <ListItem className={classes.listItem}>
