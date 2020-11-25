@@ -1,7 +1,9 @@
 import React, { useEffect } from "react";
 // @material-ui/core components
-import { getusers, editusers, deleteUser } from "../../Services/Users"
-import { getProfiles } from "../../Services/Profiles"
+import { getusers } from "../../Services/Users"
+
+
+import { getProfiles, deleteUser } from "../../Services/Profiles"
 
 import List from "@material-ui/core/List";
 
@@ -32,7 +34,7 @@ import styles from "assets/jss/material-kit-react/views/componentsSections/navba
 const useStyles = makeStyles(styles);
 
 function generate(element) {
-    return [0, 1, 2, 3].map((value) =>
+    return [0, 1, 2, 3, ,].map((value) =>
         React.cloneElement(element, {
             key: value,
         }),
@@ -48,11 +50,7 @@ export default function Users(props) {
     const [userList, setuserList] = React.useState('');
     const [editUsers, seteditUsers] = React.useState('');
     const [secondary, setSecondary] = React.useState(false);
-
-
     useEffect(async () => {
-        console.log(' i am here ')
-        console.log(' i am here in return')
 
         const data = {
             Token: localStorage.getItem('Token')
@@ -60,8 +58,7 @@ export default function Users(props) {
         }
         const result = await getProfiles(data)
         await setuserList(result.users)
-        console.log('jello', result)
-
+        console.log('hello', result)
     }, [])
 
     const logout = () => {
@@ -70,7 +67,16 @@ export default function Users(props) {
         props.history.push('/login');
     }
 
+    const OwnDeleteUser = async (id) => {
 
+        const data = {
+            Token: localStorage.getItem('Token'),
+            userId: id
+        }
+        const result = await deleteUser(data)
+        const usersList = await getusers(data)
+        await setuserList(usersList.users);
+    };
 
 
 
@@ -197,10 +203,11 @@ export default function Users(props) {
                                         </ListItemAvatar>
                                         <ListItemText
                                             primary={user.lastname}
+
                                         // secondary={user.lastname ? 'Secondary text' : null}
                                         />
                                         <ListItemSecondaryAction>
-                                            <IconButton edge="end" aria-label="delete">
+                                            <IconButton edge="end" aria-label="delete" onClick={() => OwnDeleteUser(user._id)}>
                                                 <DeleteIcon />
                                             </IconButton>
                                         </ListItemSecondaryAction>

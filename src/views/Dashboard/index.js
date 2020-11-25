@@ -54,6 +54,7 @@ export default function Dash(props) {
 
                     <Header
                         brand="DREAM LEGACY"
+                        href="localhost:300/admin"
                         color="dark"
                         rightLinks={
                             <List className={classes.list}>
