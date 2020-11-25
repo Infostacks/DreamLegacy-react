@@ -74,7 +74,7 @@ export default function Users(props) {
             userId: id
         }
         const result = await deleteUser(data)
-        const usersList = await getusers(data)
+        const usersList = await getProfiles(data)
         await setuserList(usersList.users);
     };
 
