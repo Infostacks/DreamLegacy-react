@@ -3,7 +3,7 @@ import React from "react";
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
+import Icon from '@material-ui/core/Icon';
 // @material-ui/icons
 
 // core components
@@ -12,148 +12,84 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
-import CardFooter from "components/Card/CardFooter.js";
-
+import CardFooter from "components/Card/CardFooter.js"; 
 import styles from "assets/jss/material-kit-react/views/landingPageSections/teamStyle.js";
-
+import $ from 'jquery';
 import team1 from "assets/img/faces/avatar.jpg";
 import team2 from "assets/img/faces/christian.jpg";
 import team3 from "assets/img/faces/kendall.jpg";
-
+import { Grid } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 const useStyles = makeStyles(styles);
+
 
 export default function TeamSection() {
   const classes = useStyles();
+  const history = useHistory();
   const imageClasses = classNames(
     classes.imgRaised,
     classes.imgRoundedCircle,
     classes.imgFluid
   );
+
+  const powerRoute = () => {
+    let path1= "/powerball";
+    history.push(path1);
+  
+  }
+  
+  const megaRoute = () => {
+    let path2= "megamillions";
+    history.push(path2);
+  
+  }
   return (
     <div className={classes.section}>
-      <h2 className={classes.title}>Here is our team</h2>
       <div>
         <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
-            <Card plain>
-              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                <img src={team1} alt="..." className={imageClasses} />
-              </GridItem>
-              <h4 className={classes.cardTitle}>
-                Gigi Hadid
-                <br />
-                <small className={classes.smallTitle}>Model</small>
-              </h4>
-              <CardBody>
-                <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
-                </p>
+          <GridItem xs={12} sm={6}>
+            <Card style={{background: 'linear-gradient(90deg, rgba(2,0,36,1) 0%, rgba(214,28,102,1) 0%, rgba(59,26,136,1) 50%, rgba(228,16,92,1) 97%)'}}>
+              <CardBody >
+                <h2>POWERBALL</h2>
+                <h3>Winning Numbers for today:</h3>
+                <div data-url="/api/v1/numbers/powerball/recent?_format=json" class="recent-winning-numbers" data-numbers-powerball="Power Play" data-numbers="All Star Bonus">
+      <div class="number-card"><div class="field_draw_date">Nov 25, 2020</div><div class="field_numbers"><div class="numbers-ball">02</div><div class="numbers-ball">57</div><div class="numbers-ball">58</div><div class="numbers-ball">60</div><div class="numbers-ball">65</div><div class="numbers-ball">26</div></div><div class="field_multiplier">Power Play <span>2X</span></div></div><div class="number-card"><div class="field_draw_date">Nov 21, 2020</div><div class="field_numbers"><div class="numbers-ball">51</div><div class="numbers-ball">54</div><div class="numbers-ball">57</div><div class="numbers-ball">60</div><div class="numbers-ball">69</div><div class="numbers-ball">11</div></div><div class="field_multiplier">Power Play <span>2X</span></div></div><div class="number-card"><div class="field_draw_date">Nov 18, 2020</div><div class="field_numbers"><div class="numbers-ball">04</div><div class="numbers-ball">05</div><div class="numbers-ball">17</div><div class="numbers-ball">43</div><div class="numbers-ball">52</div><div class="numbers-ball">05</div></div><div class="field_multiplier">Power Play <span>2X</span></div></div></div>
+                <h4>Current EST Jackpot: </h4>
+                <h5 style={{color : "white", background: "black"}}>$202,000,000</h5>
+                <div>
+                  <GridContainer>
+                     <GridItem style={{color : "white"}} xs={6}>
+                      Cash Value : $157,900,000
+                    </GridItem>
+                    <GridItem style={{color : "white"}} xs={6}>
+                      Next Draw : Tomorrow
+                    </GridItem>
+                  </GridContainer> 
+                </div>
+                <Button href="#top" onClick={powerRoute} style={{background: "black"}} startIcon={<Icon>send</Icon>}>Previous Winning Numbers</Button>
               </CardBody>
-              <CardFooter className={classes.justifyCenter}>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-twitter"} />
-                </Button>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-instagram"} />
-                </Button>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-facebook"} />
-                </Button>
-              </CardFooter>
             </Card>
           </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
-            <Card plain>
-              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                <img src={team2} alt="..." className={imageClasses} />
-              </GridItem>
-              <h4 className={classes.cardTitle}>
-                Christian Louboutin
-                <br />
-                <small className={classes.smallTitle}>Designer</small>
-              </h4>
+          <GridItem xs={12} sm={6}>
+          <Card style={{background: 'linear-gradient(to right bottom, #430089, #82ffa1)'}}>
               <CardBody>
-                <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
-                </p>
+                <h2>MEGAMILLIONS</h2>
+                <h3>Winning Numbers for today:</h3>
+                <img src={require("assets/img/megamillions.JPG")}></img>
+                <h4>Current EST Jackpot: </h4>
+                <h5 style={{color : "white", background: "black"}}>$200,000,000</h5>
+                <div>
+                  <GridContainer>
+                     <GridItem style={{color : "white"}} xs={6}>
+                      Cash Value : $155,700,000
+                    </GridItem>
+                    <GridItem style={{color : "white"}} xs={6} >
+                      Next Draw : Tomorrow
+                    </GridItem>
+                  </GridContainer> 
+                </div>
+                <Button href="#top" onClick={megaRoute}style={{background: "black"}} startIcon={<Icon>send</Icon>}>Previous Winning Numbers</Button>
               </CardBody>
-              <CardFooter className={classes.justifyCenter}>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-twitter"} />
-                </Button>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-linkedin"} />
-                </Button>
-              </CardFooter>
-            </Card>
-          </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
-            <Card plain>
-              <GridItem xs={12} sm={12} md={6} className={classes.itemGrid}>
-                <img src={team3} alt="..." className={imageClasses} />
-              </GridItem>
-              <h4 className={classes.cardTitle}>
-                Kendall Jenner
-                <br />
-                <small className={classes.smallTitle}>Model</small>
-              </h4>
-              <CardBody>
-                <p className={classes.description}>
-                  You can write here details about one of your team members. You
-                  can give more details about what they do. Feel free to add
-                  some <a href="#pablo">links</a> for people to be able to
-                  follow them outside the site.
-                </p>
-              </CardBody>
-              <CardFooter className={classes.justifyCenter}>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-twitter"} />
-                </Button>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-instagram"} />
-                </Button>
-                <Button
-                  justIcon
-                  color="transparent"
-                  className={classes.margin5}
-                >
-                  <i className={classes.socials + " fab fa-facebook"} />
-                </Button>
-              </CardFooter>
             </Card>
           </GridItem>
         </GridContainer>

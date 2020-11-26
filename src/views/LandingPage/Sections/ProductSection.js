@@ -10,24 +10,38 @@ import Fingerprint from "@material-ui/icons/Fingerprint";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
-
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
+import { Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(styles);
 
 export default function ProductSection() {
   const classes = useStyles();
+  const history = useHistory();
+
+const signUpRoute = () => {
+  let path1= "/signup";
+  history.push(path1);
+
+}
+
+const logInRoute = () => {
+  let path2= "/login";
+  history.push(path2);
+
+}
   return (
     <div className={classes.section}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Let{"'"}s talk product</h2>
+          <h2 className={classes.title}>About us!</h2>
           <h5 className={classes.description}>
-            This is the paragraph where you can write more details about your
-            product. Keep you user engaged by providing meaningful information.
-            Remember that by this time, the user is curious, otherwise he wouldn
-            {"'"}t scroll to get here. Add a button if you want the user to see
-            more.
+            We are here to provide you with a one-stop location for all your lotto needs. 
+            Enter your Mega Millions and Powerball tickets into DreamLegacy for storage and review. 
+            Once your tickets are entered, you'll be able to easily compare your numbers with those drawn numbers.
+            It's easy and free!
           </h5>
         </GridItem>
       </GridContainer>
@@ -35,26 +49,28 @@ export default function ProductSection() {
         <GridContainer>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
-              title="Free Chat"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-              icon={Chat}
+              title="Sign Up"
+              description="Sign up with your email address and start playing!"
+              icon={PersonAddIcon}
               iconColor="info"
               vertical
             />
+            <Button href="#top" onClick={signUpRoute} color="primary">SignUp</Button>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
-              title="Verified Users"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+              title="Already a User?"
+              description="Log in and select the number for your daily lucky draw"
               icon={VerifiedUser}
               iconColor="success"
               vertical
             />
+            <Button href="#top" onClick={logInRoute} color="primary">LogIn</Button>
           </GridItem>
           <GridItem xs={12} sm={12} md={4}>
             <InfoArea
               title="Fingerprint"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+              description="All the information that you provided is secured.This is our guarentee"
               icon={Fingerprint}
               iconColor="danger"
               vertical

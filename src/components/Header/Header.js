@@ -11,14 +11,47 @@ import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
+import Box from '@material-ui/core/Box';
 // @material-ui/icons
 import Menu from "@material-ui/icons/Menu";
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 // core components
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
-
+import { useHistory } from "react-router-dom";
 const useStyles = makeStyles(styles);
 
 export default function Header(props) {
+  
+  const history = useHistory();
+
+  const homeRoute=() =>{
+    let homePath="/landing-page";
+    history.push(homePath);
+
+  }
+  const signUpRoute = () => {
+    let signPath= "/signup";
+    history.push(signPath);
+  
+  }
+  
+  const logInRoute = () => {
+    let loginPath= "/login";
+    history.push(loginPath);
+  
+  }
+  const powerRoute = () => {
+    let powerPath= "/powerball";
+    history.push(powerPath);
+  
+  }
+  
+  const megaRoute = () => {
+    let megaPath= "megamillions";
+    history.push(megaPath);
+  
+  }
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   React.useEffect(() => {
@@ -56,14 +89,27 @@ export default function Header(props) {
   const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
   const appBarClasses = classNames({
     [classes.appBar]: true,
-    [classes[color]]: color,
+    [classes[color]]: "blue",
     [classes.absolute]: absolute,
     [classes.fixed]: fixed
   });
   const brandComponent = <Button className={classes.title}>{brand}</Button>;
   return (
     <AppBar className={appBarClasses}>
+    
       <Toolbar className={classes.container}>
+        <Box display='flex' flexGrow={7}>
+          <Button href="#top" onClick={homeRoute} style={{backgroundColor : "white"}}>Home</Button>
+          <div>-</div>
+          <Button href="#top" onClick={powerRoute} style={{backgroundColor : "white"}}>Powerball</Button>
+          <div>-</div>
+          <Button href="#top" onClick={megaRoute} style={{backgroundColor : "white"}}>Megamillions</Button>
+        </Box>
+          <Button href="#top" onClick={logInRoute} endIcon={<AccountCircleIcon/>} style={{backgroundColor : "white"}}>Log In</Button>
+          <div>-</div>
+          <Button href="#top" onClick={signUpRoute} endIcon={<AssignmentIndIcon/>} style={{backgroundColor : "white"}}>Sign Up</Button>
+          <div>-</div>
+          <div><h4>DREAMLEGACY</h4></div>
         {leftLinks !== undefined ? brandComponent : null}
         <div className={classes.flex}>
           {leftLinks !== undefined ? (
@@ -79,7 +125,7 @@ export default function Header(props) {
         </Hidden>
         <Hidden mdUp>
           <IconButton
-            color="inherit"
+            background="blue"
             aria-label="open drawer"
             onClick={handleDrawerToggle}
           >
@@ -87,7 +133,7 @@ export default function Header(props) {
           </IconButton>
         </Hidden>
       </Toolbar>
-      <Hidden mdUp implementation="js">
+      {/* <Hidden mdUp implementation="js"> */}
         <Drawer
           variant="temporary"
           anchor={"right"}
@@ -102,7 +148,7 @@ export default function Header(props) {
             {rightLinks}
           </div>
         </Drawer>
-      </Hidden>
+      {/* </Hidden> */}
     </AppBar>
   );
 }

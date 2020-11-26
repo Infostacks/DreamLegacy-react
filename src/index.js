@@ -11,6 +11,8 @@ import ProfilePage from "views/ProfilePage/ProfilePage.js";
 import LoginPage from "views/LoginPage/LoginPage.js";
 import SignUpPage from "views/Signup";
 import DataTable from "views/Groups/index"
+import Powerball from "views/Powerball/Powerball.js";
+import Mega from "views/Megamillions/Megamillions.js"
 var hist = createBrowserHistory();
 
 // const PrivateRoute = ({ component: component, ...rest }) => (
@@ -40,7 +42,8 @@ ReactDOM.render(
       <Route path="/signup" component={SignUpPage} />
       <PrivateRoute path="/admin" component={Dash} />
       <PrivateRoute path="/Group" component={DataTable} />
-      <Route path="/" component={Components} />
+      <Route path="/powerball" component={Powerball} />
+      <Route path="/megamillions" component={Mega} />
     </Switch>
   </Router>,
   document.getElementById("root")

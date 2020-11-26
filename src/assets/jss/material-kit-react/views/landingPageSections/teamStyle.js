@@ -4,7 +4,8 @@ import imagesStyle from "assets/jss/material-kit-react/imagesStyles.js";
 const teamStyle = {
   section: {
     padding: "70px 0",
-    textAlign: "center"
+    textAlign: "center",
+    background: "#F5F5DC",
   },
   title: {
     ...title,
@@ -23,7 +24,7 @@ const teamStyle = {
     color: "#6c757d"
   },
   description: {
-    color: "#999"
+    color: "black",
   },
   justifyCenter: {
     justifyContent: "center !important"
