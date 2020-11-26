@@ -1,4 +1,5 @@
-import React from 'react';
+import React, { useState } from 'react';
+import { getpools } from 'Services/Pools';
 import Button from '@material-ui/core/Button';
 import TextField from '@material-ui/core/TextField';
 import Dialog from '@material-ui/core/Dialog';
@@ -13,26 +14,46 @@ import AddCircleOutlineIcon from '@material-ui/icons/AddCircleOutline';
 import IconButton from '@material-ui/core/IconButton';
 
 export default function FormDialog() {
-    const [openAdd, setOpenAdd] = React.useState(false);
-    const [openDel, setOpenDel] = React.useState(false);  
-    const handleClickOpenAdd = () => {
-      setOpenAdd(true);
-    };
-  
-    const handleCloseAdd = () => {
-      setOpenAdd(false);
-    };
+  const [openAdd, setOpenAdd] = React.useState(false);
+  const [openDel, setOpenDel] = React.useState(false);
+  const [price, setprice] = useState('');
+  const [name, setname] = useState('');
+  const handleClickOpenAdd = () => {
+    setOpenAdd(true);
+  };
 
-    const handleClickOpenDel = () => {
-        setOpenDel(true);
-      };
-    
-      const handleCloseDel = () => {
-        setOpenDel(false);
-      };
+  const handleCloseAdd = () => {
+    setOpenAdd(false);
+  };
 
-    return(
-        <div>
+  const handleClickOpenDel = () => {
+    setOpenDel(true);
+  };
+
+  const handleCloseDel = () => {
+    setOpenDel(false);
+  };
+
+  const getdata = async () => {
+    const data = {
+      name: name,
+      price: price // This is the body part
+    }
+
+    const poolResult = await getpools(data);
+    console.log('hello login result', poolResult)
+    return poolResult;
+  };
+
+  const submit = async () => {
+
+    const result = await getdata()
+    console.log('hello', result)
+
+  }
+
+  return (
+    <div>
       <IconButton aria-label="delete" onClick={handleClickOpenDel}>
         <DeleteIcon />
       </IconButton>
@@ -61,13 +82,13 @@ export default function FormDialog() {
         </DialogActions>
       </Dialog>
       <IconButton aria-label="add" onClick={handleClickOpenAdd}>
-        <AddCircleOutlineIcon/>
+        <AddCircleOutlineIcon />
       </IconButton>
       <Dialog open={openAdd} onClose={handleCloseAdd} aria-labelledby="form-dialog-title">
-        <DialogTitle id="form-dialog-title">New Pool</DialogTitle>
+        <DialogTitle id="form-dialog-title">Add a Pool</DialogTitle>
         <DialogContent>
           <DialogContentText>
-            Add New Pool to the daily draw, give it a name
+            Add New Pool to the Daily Draw, Give it a Name
           </DialogContentText>
           <TextField
             autoFocus
@@ -75,6 +96,18 @@ export default function FormDialog() {
             id="name"
             label="Pool name"
             type="string"
+            value={name}
+            onChange={(event) => setname(event.target.value)}
+            fullWidth
+          />
+          <TextField
+            autoFocus
+            margin="dense"
+            id="price"
+            label="Winning Amount"
+            type="string"
+            value={price}
+            onChange={(event) => setprice(event.target.value)}
             fullWidth
           />
         </DialogContent>
@@ -82,11 +115,11 @@ export default function FormDialog() {
           <Button onClick={handleCloseAdd} color="primary">
             Cancel
           </Button>
-          <Button onClick={handleCloseAdd} color="primary">
+          <Button onClick={() => submit()} color="primary">
             Add
           </Button>
         </DialogActions>
       </Dialog>
-      </div>
-    )
+    </div>
+  )
 }
