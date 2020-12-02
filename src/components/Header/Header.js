@@ -46,6 +46,12 @@ export default function Header(props) {
     history.push(powerPath);
   
   }
+
+  const stateRoute=() =>{
+    let statePath="/states";
+    history.push(statePath);
+
+  }
   
   const megaRoute = () => {
     let megaPath= "megamillions";
@@ -104,6 +110,8 @@ export default function Header(props) {
           <Button href="#top" onClick={powerRoute} style={{backgroundColor : "white"}}>Powerball</Button>
           <div>-</div>
           <Button href="#top" onClick={megaRoute} style={{backgroundColor : "white"}}>Megamillions</Button>
+          <div>-</div>
+          <Button href="#top" onClick={stateRoute} style={{backgroundColor : "white"}}>State numbers</Button>
         </Box>
           <Button href="#top" onClick={logInRoute} endIcon={<AccountCircleIcon/>} style={{backgroundColor : "white"}}>Log In</Button>
           <div>-</div>
