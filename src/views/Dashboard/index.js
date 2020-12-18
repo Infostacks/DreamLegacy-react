@@ -43,6 +43,9 @@ export default function Dash(props) {
         props.history.push('/login');
 
     };
+    const Users = () => {
+        props.history.push('/Users')
+    };
     return (
         
         <div className={classes.section}>
@@ -60,22 +63,27 @@ export default function Dash(props) {
 
                     <Header
                         brand="DREAM LEGACY"
+                        href="localhost:300/admin"
                         color="dark"
                         rightLinks={
                             <List className={classes.list}>
                                 <ListItem className={classes.listItem}>
                                     <Button
-                                        href="#pablo"
                                         className={classes.navLink}
-                                        onClick={e => e.preventDefault()}
+                                        onClick={() => Users()}
                                         color="transparent"
+
                                     >
                                         Users
                   </Button>
                                 </ListItem>
                                 <ListItem className={classes.listItem}>
                                     <Button
+<<<<<<< HEAD
+
+=======
                                         href=""
+>>>>>>> 082535a13607c3653abf1fc196de2a1273ebd890
                                         className={classes.navLink}
                                         onClick={routeChange} 
                                         color="transparent"

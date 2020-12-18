@@ -4,6 +4,7 @@ import { createBrowserHistory } from "history";
 import { Router, Route, Switch, Redirect,Link, BrowserRouter  } from "react-router-dom";
 import "assets/scss/material-kit-react.scss?v=1.9.0";
 import Dash from "views/Dashboard/index";
+import Users from "./views/Users/User";
 // pages for this product
 import Components from "views/Components/Components.js";
 import LandingPage from "views/LandingPage/LandingPage.js";
@@ -65,6 +66,16 @@ ReactDOM.render(
     <BrowserRouter forceRefresh={true}>
   <Router history={history}>
     <Switch>
+<<<<<<< HEAD
+      <Route path="/login" component={LoginPage} />
+      <PrivateRoute path="/landing-page" component={LandingPage} />
+      <PrivateRoute path="/profile-page" component={ProfilePage} />
+      <Route path="/signup" component={SignUpPage} />
+      <PrivateRoute path="/admin" component={Dash} />
+      <PrivateRoute path="/Users" component={Users} />
+      <PrivateRoute path="/Group" component={DataTable} />
+      <Route path="/" component={Components} />
+=======
       <Route exact path='/login' component={LoginPage} />
       <PrivateRoute exact path='/landing-page' component={LandingPage} />
       <PrivateRoute exact path='/profile-page' component={ProfilePage} />
@@ -75,6 +86,7 @@ ReactDOM.render(
       <Route exact path='/megamillions' component={Mega} />
       <Route exact path='/states' component={States}/>
       <Route exact path='/states-page' component={StatesPage}/>
+>>>>>>> 082535a13607c3653abf1fc196de2a1273ebd890
     </Switch>
   </Router>
   </BrowserRouter>
