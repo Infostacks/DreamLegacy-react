@@ -20,16 +20,16 @@ import Button from "components/CustomButtons/Button.js";
 import { useHistory } from "react-router-dom";
 import image from "assets/img/bg.jpg";
 import profileImage from "assets/img/faces/avatar.jpg";
-
+import Grid from "@material-ui/core/Grid"
 
 import styles from "assets/jss/material-kit-react/views/componentsSections/navbarsStyle.js";
 import ResponsiveDrawer from "components/Sidebar";
-
+import OutlinedCard from "components/Chatbox"
 const useStyles = makeStyles(styles);
 
 
 
-export default function Dash(props) {
+export default function DashWithSidebar(props) {
     const history = useHistory();
 
     const routeChange = () =>{ ; 
@@ -42,9 +42,6 @@ export default function Dash(props) {
         localStorage.removeItem('Token');
         props.history.push('/login');
 
-    };
-    const Users = () => {
-        props.history.push('/Users')
     };
     return (
         
@@ -63,32 +60,27 @@ export default function Dash(props) {
 
                     <Header
                         brand="DREAM LEGACY"
-                        href="localhost:300/admin"
                         color="dark"
                         rightLinks={
                             <List className={classes.list}>
                                 <ListItem className={classes.listItem}>
                                     <Button
+                                        href="#pablo"
                                         className={classes.navLink}
-                                        onClick={() => Users()}
+                                        onClick={e => e.preventDefault()}
                                         color="transparent"
-
                                     >
                                         Users
                   </Button>
                                 </ListItem>
                                 <ListItem className={classes.listItem}>
                                     <Button
-<<<<<<< HEAD
-
-=======
                                         href=""
->>>>>>> 082535a13607c3653abf1fc196de2a1273ebd890
                                         className={classes.navLink}
                                         onClick={routeChange} 
                                         color="transparent"
                                     >
-                                        Pools
+                                        Groups
                   </Button>
                                 </ListItem>
                                 <ListItem className={classes.listItem}>
@@ -144,7 +136,15 @@ export default function Dash(props) {
                                 </ListItem>
                             </List>
                         }
-                    />      
+                    />
+                    <Grid container spacing={3}>
+                        <Grid item xs={12} sm={3}>   
+                            <ResponsiveDrawer/>
+                        </Grid>
+                        <Grid item xs={12} sm={9}>
+                            <OutlinedCard/>
+                        </Grid>   
+                    </Grid>  
                 </div>
             </div>
         </div>
