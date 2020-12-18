@@ -33,11 +33,11 @@ const logInRoute = () => {
 
 }
   return (
-    <div className={classes.section}>
+    <div className={classes.section} style={{ color: "white", background: "#6a040f" }}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>About us!</h2>
-          <h5 className={classes.description}>
+          <h2 className={classes.title} style={{color:'#f4a261'}}>About us!</h2>
+          <h5  style={{color:'#f4a261'}} className={classes.description}>
             We are here to provide you with a one-stop location for all your lotto needs. 
             Enter your Mega Millions and Powerball tickets into DreamLegacy for storage and review. 
             Once your tickets are entered, you'll be able to easily compare your numbers with those drawn numbers.
@@ -47,32 +47,32 @@ const logInRoute = () => {
       </GridContainer>
       <div>
         <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={4} style={{color:'f4a261'}}>
             <InfoArea
               title="Sign Up"
               description="Sign up with your email address and start playing!"
               icon={PersonAddIcon}
-              iconColor="info"
+              color="#f4a261"
               vertical
             />
-            <Button href="#top" onClick={signUpRoute} color="primary">SignUp</Button>
+            <Button href="#top" onClick={signUpRoute} color="white">SignUp</Button>
           </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={4} style={{color:'f4a261'}}>
             <InfoArea
               title="Already a User?"
               description="Log in and select the number for your daily lucky draw"
               icon={VerifiedUser}
-              iconColor="success"
+              color="#f4a261"
               vertical
             />
-            <Button href="#top" onClick={logInRoute} color="primary">LogIn</Button>
+            <Button href="#top" onClick={logInRoute} color="white">LogIn</Button>
           </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={4} style={{color:'f4a261'}}>
             <InfoArea
               title="Fingerprint"
               description="All the information that you provided is secured.This is our guarentee"
               icon={Fingerprint}
-              iconColor="danger"
+              color="#f4a261"
               vertical
             />
           </GridItem>

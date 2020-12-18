@@ -1,11 +1,18 @@
-import React from "react";
+import React,{useEffect} from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
-
+// import Button from "@material-ui/core/Button";
 // @material-ui/icons
-
+import { withStyles} from '@material-ui/core/styles';
+import Table from '@material-ui/core/Table';
+import TableBody from '@material-ui/core/TableBody';
+import TableCell from '@material-ui/core/TableCell';
+import TableContainer from '@material-ui/core/TableContainer';
+import TableHead from '@material-ui/core/TableHead';
+import TableRow from '@material-ui/core/TableRow';
+import Paper from '@material-ui/core/Paper';
 // core components
 import Header from "components/Header/Header.js";
 import Footer from "components/Footer/Footer.js";
@@ -17,17 +24,68 @@ import Button from "components/CustomButtons/Button.js";
 import Parallax from "components/Parallax/Parallax.js";
 import Card from "components/Card/Card.js";
 import CardBody from "components/Card/CardBody.js";
+import {connect} from "react-redux";
 import CardFooter from "components/Card/CardFooter.js"; 
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import { Divider } from "@material-ui/core";
+import * as dataActions from '../../Store/Actions/Index'
 
 const dashboardRoutes = [];
 
-const useStyles = makeStyles(styles);
+// const useStyles = makeStyles(styles);
+const StyledTableCell = withStyles((theme) => ({
+  head: {
+    backgroundColor:"#ffbe0b",
+    color: "#6a040f",
+  },
+  body: {
+    fontSize: 14,
+    color:"#6a040f",
+  },
+}))(TableCell);
 
-export default function Powerball(props) {
+const StyledTableRow = withStyles((theme) => ({
+  root: {
+    '&:nth-of-type(odd)': {
+      backgroundColor: theme.palette.action.hover,
+    },
+  },
+}))(TableRow);
+
+
+
+
+const useStyles = makeStyles({
+  table: {
+    minWidth: 700,
+    minHeight: '200px',
+  },
+});
+
+
+
+
+ function Mega(props) {
   const classes = useStyles();
   const { ...rest } = props;
+
+  useEffect(()=>{
+    (async() => {
+    // await props.getPoolsData();
+    // const poolsResult = await getpools();
+    // setpools(poolsResult.data)
+    await props.getPoolsData();
+    await props.getMegaData();
+    
+    
+    // console.log('megadata',megaResult.data)
+  
+    
+  
+  })();
+  },[]);
+
+
   return (
     <div>
       <Header
@@ -41,58 +99,140 @@ export default function Powerball(props) {
         }}
         {...rest}
       />
-      <Parallax filter image={require("assets/img/powerball1.jpg")}>
+      <Parallax style={{height:'400px',backgroundColor:'#6a040f'}}>
         <div className={classes.container}>
           <GridContainer>
-            <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Powerball</h1>
+            <GridItem  style={{height:'60px'}}>
+              <h1 style={{color : "#ffbe0b"}}>PowerBall Winning Numbers</h1>
               <br/>
             </GridItem>
           </GridContainer>
         </div>
       </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
+      <div className={classNames(classes.main, classes.mainRaised)} >
         <div>
-        <Card style={{background: "beige"}}>
-              <CardBody>
-                <h2 style={{color : "red"}}>Powerball winning numbers</h2>
-                <div>
-                <h4>Next Drawing: Tomorrow  </h4>
-                <h4>Current Est Jackpot: $202,000,000</h4>
-                <h4>Cash Value: $157,900,000</h4>
-                </div>
-              </CardBody>
-            </Card>
+    
+             
             <Divider></Divider>
-            <Card style={{background : "beige"}}>
+            <Card style={{background : "#6a040f"}}>
+            {/* {props.mega &&
+          props.mega.map((y, index) => ( */}
               <CardBody>
-                <div>
-                    <h1 style={{color : "black"}} >Table Here</h1>
-                </div>
+                
+            
+      
+            <h4 style={{color : "#ffbe0b"}}>Next Drawing
+              </h4>         
+             <div style={{color : "#ffbe0b"}}> 
+              <h3 style={{wordSpacing:'50px'}}>{props.mega}</h3>       
+              </div>
               </CardBody>
+              {/* ))} */}
             </Card> 
             <Divider></Divider>
-            <Card style={{background: "beige"}}>
+            <Card style={{background: "#6a040f"}}>
               <CardBody>
-                    <h3 style={{color : "red"}}>Prizes and Odds</h3>
-                    <h5>All prizes, other than the Grand Prize, are set cash prize amounts, 
-                        except in California where prize payout amounts are pari-mutuel and determined by 
-                        sales and the number of winners; prize amounts below may also become pari-mutuel in all 
-                        jurisdictions in rare circumstances.</h5>                    
-                        <img src={require("assets/img/odds.JPG")}></img>
-                    <h3 style={{color : "red"}}>Odds when the 10x multiplier is available</h3>
-                    <img src={require("assets/img/odds10.JPG")}></img>
-                    <h3 style={{color : "red"}}>Odds when the 10x multiplier is not available</h3>
-                    <img src={require("assets/img/odds101.JPG")}></img>
-                    <h3 style={{color : "red"}}>Prizes</h3>
-                    <img src={require("assets/img/prizes.JPG")}></img>
-                    <h5 style={{color : "black"}}>There are nine ways to win in Powerball,
-                     return to your Powerball retailer or Lottery headquarters for validation of your tickets.</h5>
-              </CardBody>
-            </Card> 
+
+                <div>
+                    <h4 style={{color : "#ffbe0b"}}>Current EST Jackpot</h4>
+                    <h3 style={{wordSpacing:'50px',color:'#ffbe0b'}}>$310,000,000</h3>      
+                    </div>
+                    </CardBody>
+                  </Card>
+                  <Divider></Divider>
+                  <Card style={{background: "#6a040f"}}>
+              <CardBody>
+
+                <div>
+                    <h4 style={{color : "#ffbe0b"}}>Cash Value</h4>
+                    <h3 style={{wordSpacing:'50px',color:'#ffbe0b'}}>$238,000,000</h3>      
+                    </div>
+                    </CardBody>
+                  </Card>
+                  <Card style={{background: "#6a040f"}}>
+              <CardBody>
+<div>
+                    
+                    <TableContainer component={Paper}>
+      <Table className={classes.table} aria-label="customized table">
+        <TableHead>
+          <TableRow style={{color:'#ffbe0b'}}>
+            <StyledTableCell>LATEST NUMBERS</StyledTableCell>
+            <StyledTableCell align="right">Jackpot</StyledTableCell>
+            <StyledTableCell align="right">Cash Values</StyledTableCell>
+          </TableRow>
+        </TableHead>
+        <TableBody>
+          {props.tdata &&
+          props.tdata.map((y, index) => (
+            <StyledTableRow >
+              <StyledTableCell component="th" scope="row">
+                {y.d}
+                <grid style={{marginLeft:"100px"}}></grid>
+                {y.n &&
+                    y.n.map((number, index) => (
+                     < div class="numbers-ball" style={{
+                        backgroundColor: '#ffbe0b',
+                        width: '35px',
+                        height: '35px',
+                        borderRadius: '20px',
+                        textAlign: 'center',
+                        alignItems: 'center',
+                        display: 'inline-flex',
+                        margin: '10px 8px 10px 0',
+                        justifyContent: 'center',
+                        fontSize: '19px',
+                        fontFamily: 'ProximaNova-Bold',
+                        color: 'white',
+                      }}>
+                        {number}
+                      </div>
+                    ))}
+              </StyledTableCell>
+              <StyledTableCell align="right"></StyledTableCell>
+              <StyledTableCell align="right"></StyledTableCell>
+            </StyledTableRow>
+          ))}
+        </TableBody>
+      </Table>
+    </TableContainer>
+                    </div>
+     </CardBody>
+     </Card>
+     <Card style={{background: "#6a040f", alignItems:"center"}}>
+       <CardBody>
+    <div>
+                    <Button style={{backgroundColor : "#f4a261"}}>Past Winning Numbers</Button>
+                    </div>   <div>
+                    <Button style={{backgroundColor : "#f4a261"}}>Prizes and ODDS</Button>
+                   
+                    </div>
+                    </CardBody>
+                    </Card>
         </div>
       </div>
       <Footer/>
     </div>
   );
 }
+
+
+const mapStateToProps = (state) => {
+  console.log('state', state)
+  return {
+    mega: state && state.data && state.data.megaData && state.data.megaData.data && 
+   state.data.megaData.data.u,
+   tdata:  state && state.data && state.data.megaData && state.data.megaData.data && 
+   state.data.megaData.data.s &&  state.data.megaData.data.s[0] &&  state.data.megaData.data.s[0].g && state.data.megaData.data.s[0].g[1] && 
+   state.data.megaData.data.s[0].g[1].h
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPoolsData:() => dispatch(dataActions.getPoolsData()),
+    getMegaData:() => dispatch(dataActions.getMegaData()),
+   }
+
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Mega);

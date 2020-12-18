@@ -40,15 +40,15 @@ export default function Footer(props) {
   });
 
   return (
-    <footer className={footerClasses}>
+    <footer  >
       <div className={classes.container}>
-        <div>
-        <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
+        <div >
+        <GridContainer> 
+          <GridItem xs={12} sm={12} md={4} >
           <InfoArea 
               title="Contact Us"
               icon={MailIcon}
-              iconColor="info"
+              color="white"
               vertical>  
           </InfoArea>
           <div style={{textAlign : "left"}}>
@@ -60,7 +60,7 @@ export default function Footer(props) {
           <InfoArea 
               title="Social"
               icon={PeopleIcon}
-              iconColor="info"
+              color="white"
               vertical>  
           </InfoArea>
           <div style={{textAlign : "left"}}>
@@ -72,7 +72,7 @@ export default function Footer(props) {
           <InfoArea 
               title="Legal"
               icon={DescriptionIcon}
-              iconColor="info"
+              color="white"
               vertical>
               
           </InfoArea>

@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import { useState } from "react";
 // nodejs library that concatenates classes
 import classNames from "classnames";
+import {getMega} from '../../Services/Pool'
 // @material-ui/core components
 import { makeStyles } from "@material-ui/core/styles";
 // core components
@@ -18,30 +19,64 @@ import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import { Divider } from "@material-ui/core";
+import {connect} from "react-redux";
 import _ from "lodash";
-import { getpools } from "Services/Pool";
+import { useHistory } from "react-router-dom";
+import * as dataActions from '../../Store/Actions/Index'
+import { getMegaData } from '../../Store/Actions/Index'
+
 
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
 
 
-export default function States(props) {
+function States(props) {
   const classes = useStyles();
-  const [states1, setStates] = useState();
+  const history = useHistory();
 
-  useEffect(async () => {
-    const poolsdata = await getpools();
-    let states = _.map(poolsdata[0].data.s, (state, index) => {
-      return { label: state.i.sn, abbr: state.i.s, key: index };
-    });
-    if (states && !_.isEmpty(states)) {
-      setStates(states);
-    }
-    console.log("states data", states);
-  }, []);
 
-  const { ...rest } = props;
+    
+
+  const setState = async (data) => {
+    await props.setSelectedData(data)
+    let statesPath= "/states-page";
+    history.push(statesPath)
+
+  
+  }
+
+  useEffect(()=>{
+    (async() => {
+    // await props.getPoolsData();
+    // const poolsResult = await getpools();
+    // setpools(poolsResult.data)
+    await props.getPoolsData();
+    await props.getMegaData();
+    
+    
+    // console.log('megadata',megaResult.data)
+
+    
+
+  })();
+},[]);
+
+  // useEffect(async () => {
+    
+  //   const poolsdata = await getMega();
+  //   console.log('hello', props.pools &&  props.pools)
+  //   // console.log('hello',poolsdata)
+  //   let states = _.map(poolsdata.data.s, (state, index) => {
+  //     return { label: state.i.sn, abbr: state.i.s, key: index };
+  //   });
+  //   if (states && !_.isEmpty(states)) {
+  //     setStates(states);
+  //   }
+  //   console.log("states data", states);
+  // }, []);
+
+  // const { ...rest } = props;
   return (
     <div>
       <Header
@@ -50,23 +85,52 @@ export default function States(props) {
         // rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
-          height: 400,
-          color: "white",
+          height: 90,
+          
         }}
-        {...rest}
+        // {...rest}
       />
       <Parallax filter image={require("assets/img/US-Map.jpg")}>
-        <div className={classes.container}></div>
-      </Parallax>
-      <Card>
-        {states1 &&
+        <div className={classes.container}>
+        {props.mega &&
+          props.mega.map((y, index) => (
+            <Button onClick={()=> setState(y)} style={{ background: "#ffbe0b", align: "center" }}>
+              {y.i.sn}, {y.i.s}
+            </Button>
+          ))}
+        </div>
+          {/* <div className={classes.container}>
+        {states1 && states1.data && states1.data.s poolsdata.data.s
           states1.map((y, index) => (
-            <Button style={{ background: "red", align: "center" }}>
+            <Button onClick={statesdata} style={{ background: "#22223b", align: "center" }}>
               {y.label}, {y.abbr}
             </Button>
           ))}
+        // </div> */}
+      </Parallax>
+      <Card style={{width:'250px',display:'contents'}}>
+       
       </Card>
       <Footer />
     </div>
   );
 }
+
+const mapStateToProps = (state) => {
+  console.log('state', state)
+  return {
+    pools: state && state.data && state.data.poolsData && state.data.poolsData.data, 
+    mega: state && state.data && state.data.megaData && state.data.megaData.data && 
+   state.data.megaData.data.s 
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    getPoolsData:() => dispatch(dataActions.getPoolsData()),
+    getMegaData:() => dispatch(dataActions.getMegaData()),
+  setSelectedData: (payload) => dispatch(dataActions.setSelectedState(payload))
+   }
+
+};
+// // Exports
+export default connect(mapStateToProps, mapDispatchToProps)(States);

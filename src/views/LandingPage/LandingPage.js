@@ -29,30 +29,30 @@ export default function LandingPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
-    <div>
+    <div style={{background:'#6a040f'}}>
       <Header
-        color="transparent"
+        color="transparent" 
         routes={dashboardRoutes}
         // rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
-          height: 400,
+          height: 50,
           color: "white"
         }}
         {...rest}
       />
-      <Parallax filter image={require("assets/img/landing-bg.jpg")}>
+      <Parallax style={{height:'300px'}} filter image={require("assets/img/landing-bg.jpg")}>
         <div className={classes.container}>
           <GridContainer>
-            <GridItem xs={12} sm={12} md={6}>
-              <h1 className={classes.title}>Welcome to DreamLegacy!</h1>
-              <br/>
-            </GridItem>
+            {/* <GridItem xs={12} sm={12} md={6}> */}
+              <h1 style={{color:'#f4a261'}}> Welcome to DreamLegacy!</h1>
+              
+            {/* </GridItem> */}
           </GridContainer>
         </div>
       </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}>
-        <div className={classes.container}>
+      <div className={classNames(classes.main, classes.mainRaised)}style={{background:'#6a040f'}}>
+        <div className={classes.container} style={{color:'white'}}>
           <TeamSection/>         
           <ProductSection/>
         </div>
