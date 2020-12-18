@@ -10,53 +10,69 @@ import Fingerprint from "@material-ui/icons/Fingerprint";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import InfoArea from "components/InfoArea/InfoArea.js";
-
+import PersonAddIcon from '@material-ui/icons/PersonAdd';
 import styles from "assets/jss/material-kit-react/views/landingPageSections/productStyle.js";
+import { Button } from "@material-ui/core";
+import { useHistory } from "react-router-dom";
 
 const useStyles = makeStyles(styles);
 
 export default function ProductSection() {
   const classes = useStyles();
+  const history = useHistory();
+
+const signUpRoute = () => {
+  let path1= "/signup";
+  history.push(path1);
+
+}
+
+const logInRoute = () => {
+  let path2= "/login";
+  history.push(path2);
+
+}
   return (
-    <div className={classes.section}>
+    <div className={classes.section} style={{ color: "white", background: "#6a040f" }}>
       <GridContainer justify="center">
         <GridItem xs={12} sm={12} md={8}>
-          <h2 className={classes.title}>Let{"'"}s talk product</h2>
-          <h5 className={classes.description}>
-            This is the paragraph where you can write more details about your
-            product. Keep you user engaged by providing meaningful information.
-            Remember that by this time, the user is curious, otherwise he wouldn
-            {"'"}t scroll to get here. Add a button if you want the user to see
-            more.
+          <h2 className={classes.title} style={{color:'#f4a261'}}>About us!</h2>
+          <h5  style={{color:'#f4a261'}} className={classes.description}>
+            We are here to provide you with a one-stop location for all your lotto needs. 
+            Enter your Mega Millions and Powerball tickets into DreamLegacy for storage and review. 
+            Once your tickets are entered, you'll be able to easily compare your numbers with those drawn numbers.
+            It's easy and free!
           </h5>
         </GridItem>
       </GridContainer>
       <div>
         <GridContainer>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={4} style={{color:'f4a261'}}>
             <InfoArea
-              title="Free Chat"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
-              icon={Chat}
-              iconColor="info"
+              title="Sign Up"
+              description="Sign up with your email address and start playing!"
+              icon={PersonAddIcon}
+              color="#f4a261"
               vertical
             />
+            <Button href="#top" onClick={signUpRoute} color="white">SignUp</Button>
           </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={4} style={{color:'f4a261'}}>
             <InfoArea
-              title="Verified Users"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+              title="Already a User?"
+              description="Log in and select the number for your daily lucky draw"
               icon={VerifiedUser}
-              iconColor="success"
+              color="#f4a261"
               vertical
             />
+            <Button href="#top" onClick={logInRoute} color="white">LogIn</Button>
           </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem xs={12} sm={12} md={4} style={{color:'f4a261'}}>
             <InfoArea
               title="Fingerprint"
-              description="Divide details about your product or agency work into parts. Write a few lines about each one. A paragraph describing a feature will be enough."
+              description="All the information that you provided is secured.This is our guarentee"
               icon={Fingerprint}
-              iconColor="danger"
+              color="#f4a261"
               vertical
             />
           </GridItem>

@@ -4,21 +4,58 @@ import classNames from "classnames";
 // nodejs library to set properties for components
 import PropTypes from "prop-types";
 // @material-ui/core components
+import { Grid } from "@material-ui/core";
+import GridItem from "components/Grid/GridItem.js";
 import { makeStyles } from "@material-ui/core/styles";
 import AppBar from "@material-ui/core/AppBar";
 import Toolbar from "@material-ui/core/Toolbar";
 import IconButton from "@material-ui/core/IconButton";
 import Button from "@material-ui/core/Button";
+
 import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
+import Box from '@material-ui/core/Box';
 // @material-ui/icons
-import Menu from "@material-ui/icons/Menu";
+
+import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
+import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 // core components
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
-
+import { useHistory,withRouter } from "react-router-dom";
 const useStyles = makeStyles(styles);
 
 export default function Header(props) {
+  
+  const history = useHistory();
+
+  const homeRoute=() =>{
+
+   history.push("/landing-page");
+
+  }
+  const signUpRoute = () => {
+   history.push("/signup");
+  
+  }
+  
+  const logInRoute = () => {
+   history.push("/login");
+  
+  }
+  const powerRoute = () => {
+   history.push("/powerball");
+  
+  }
+
+  const stateRoute=() =>{
+   history.push("/states");
+
+  }
+  
+  const megaRoute = () => {
+   history.push("/megamillions");
+  
+  }
   const classes = useStyles();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   React.useEffect(() => {
@@ -56,14 +93,38 @@ export default function Header(props) {
   const { color, rightLinks, leftLinks, brand, fixed, absolute } = props;
   const appBarClasses = classNames({
     [classes.appBar]: true,
-    [classes[color]]: color,
+    [classes[color]]: "blue",
     [classes.absolute]: absolute,
     [classes.fixed]: fixed
   });
   const brandComponent = <Button className={classes.title}>{brand}</Button>;
   return (
+    <Grid > 
     <AppBar className={appBarClasses}>
+    
       <Toolbar className={classes.container}>
+     
+   
+      
+        <GridItem >
+        <Box display='flex' lg={4} xs={12} md={6} style={{whiteSpace:'6'}}>
+          <Button onClick={homeRoute} style={{backgroundColor : "#ffbe0b"}}>Home</Button>
+          <div>-</div>
+          <Button onClick={powerRoute} style={{backgroundColor : "#ffbe0b"}}>Powerball</Button>
+          <div>-</div>
+          <Button onClick={megaRoute} style={{backgroundColor : "#ffbe0b"}}>Megamillions</Button>
+          <div>-</div>
+          <Button onClick={stateRoute} style={{backgroundColor : "#ffbe0b"}}>State numbers</Button>
+        </Box>
+        </GridItem >
+          <Button onClick={logInRoute} style={{backgroundColor : "#ffbe0b"}}>Log In</Button>
+          <div>-</div>
+          <Button onClick={signUpRoute} style={{backgroundColor : "#ffbe0b"}}>SignUp</Button>
+        
+          
+       
+       
+
         {leftLinks !== undefined ? brandComponent : null}
         <div className={classes.flex}>
           {leftLinks !== undefined ? (
@@ -79,15 +140,16 @@ export default function Header(props) {
         </Hidden>
         <Hidden mdUp>
           <IconButton
-            color="inherit"
+            background="blue"
             aria-label="open drawer"
             onClick={handleDrawerToggle}
           >
-            <Menu />
           </IconButton>
         </Hidden>
+       
       </Toolbar>
-      <Hidden mdUp implementation="js">
+
+      {/* <Hidden mdUp implementation="js"> */}
         <Drawer
           variant="temporary"
           anchor={"right"}
@@ -102,8 +164,9 @@ export default function Header(props) {
             {rightLinks}
           </div>
         </Drawer>
-      </Hidden>
+      {/* </Hidden> */}
     </AppBar>
+    </Grid>
   );
 }
 
@@ -149,3 +212,27 @@ Header.propTypes = {
     ]).isRequired
   })
 };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

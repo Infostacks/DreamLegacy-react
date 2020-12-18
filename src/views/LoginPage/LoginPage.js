@@ -95,7 +95,7 @@ export default function LoginPage(props) {
         setisLoading("false")
 
 
-        props.history.push('/admin/Dashboard')
+        props.history.push('/landing-page')
       } else {
         // this.notify(result.message, "danger")
 
@@ -197,7 +197,7 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary" size="lg" onClick={() => submit()}>
+                    <Button simple color="primary=" size="lg" onClick={() => submit()}>
                       LOGIN
                     </Button>
                     <Button simple color="primary" size="lg" onClick={() => register()}>
