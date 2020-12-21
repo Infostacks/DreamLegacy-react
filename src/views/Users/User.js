@@ -106,10 +106,10 @@ export default function Users(props) {
                 >
 
 
-                    <Header
-                        brand="DREAM LEGACY"
+                    <Header/>
+                        {/* brand="DREAM LEGACY"
                         color="dark"
-                        rightLinks={
+                        rightLinks={ */}
                             <List className={classes.list}>
                                 <ListItem className={classes.listItem}>
                                     <Button
@@ -185,8 +185,8 @@ export default function Users(props) {
 
                                 </ListItem>
                             </List>
-                        }
-                    />
+                        {/* } */}
+                    
                     <Grid item xm={12} md={6} style={{ textAlign: '-webkit-center' }}>
                         <Typography variant="h6" className={classes.title} style={{ color: '#000000', textAlign: '-webkit-center' }}>
                             Users List

@@ -40,7 +40,7 @@ export default function Footer(props) {
   });
 
   return (
-    <footer  >
+    <footer style={{backgroundColor:'#ffba08'}} >
       <div className={classes.container}>
         <div >
         <GridContainer> 

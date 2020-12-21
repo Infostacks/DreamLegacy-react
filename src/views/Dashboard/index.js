@@ -61,11 +61,11 @@ export default function Dash(props) {
                     style={{ backgroundImage: "url(" + image + ")" }}
                 >
 
-                    <Header
-                        brand="DREAM LEGACY"
+                    <Header></Header>
+                        {/* brand="DREAM LEGACY"
                         href="localhost:300/admin"
                         color="dark"
-                        rightLinks={
+                        rightLinks={ */}
                             <List className={classes.list}>
                                 <ListItem className={classes.listItem}>
                                     <Button
@@ -79,11 +79,8 @@ export default function Dash(props) {
                                 </ListItem>
                                 <ListItem className={classes.listItem}>
                                     <Button
-<<<<<<< HEAD
 
-=======
                                         href=""
->>>>>>> 082535a13607c3653abf1fc196de2a1273ebd890
                                         className={classes.navLink}
                                         onClick={routeChange} 
                                         color="transparent"
@@ -143,8 +140,8 @@ export default function Dash(props) {
 
                                 </ListItem>
                             </List>
-                        }
-                    />      
+                        {/* } */}
+                        
                 </div>
             </div>
         </div>

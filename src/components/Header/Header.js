@@ -68,6 +68,12 @@ export default function Header(props) {
       }
     };
   });
+  const logout = () => {
+    console.log('hello')
+    localStorage.removeItem('Token');
+    props.history.push('/login');
+
+};
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -99,28 +105,32 @@ export default function Header(props) {
   });
   const brandComponent = <Button className={classes.title}>{brand}</Button>;
   return (
-    <Grid > 
+    <Grid> 
     <AppBar className={appBarClasses}>
     
       <Toolbar className={classes.container}>
      
    
       
-        <GridItem >
+        <Grid>
         <Box display='flex' lg={4} xs={12} md={6} style={{whiteSpace:'6'}}>
           <Button onClick={homeRoute} style={{backgroundColor : "#ffbe0b"}}>Home</Button>
-          <div>-</div>
+          <Grid style={{margin:"10px"}}></Grid>
+          
           <Button onClick={powerRoute} style={{backgroundColor : "#ffbe0b"}}>Powerball</Button>
-          <div>-</div>
+          <Grid style={{margin:"10px"}}></Grid>
           <Button onClick={megaRoute} style={{backgroundColor : "#ffbe0b"}}>Megamillions</Button>
-          <div>-</div>
+          <Grid style={{margin:"10px"}}></Grid>
           <Button onClick={stateRoute} style={{backgroundColor : "#ffbe0b"}}>State numbers</Button>
         </Box>
-        </GridItem >
+        </Grid >
+      <div style={{float:'right'}}>
           <Button onClick={logInRoute} style={{backgroundColor : "#ffbe0b"}}>Log In</Button>
-          <div>-</div>
+          <Grid style={{margin:"10px"}}></Grid>
           <Button onClick={signUpRoute} style={{backgroundColor : "#ffbe0b"}}>SignUp</Button>
-        
+          <Grid style={{margin:"10px"}}></Grid>
+          <Button onClick={() => logout()} style={{backgroundColor : "#ffbe0b"}}>LogOut</Button>
+          </div>
           
        
        

@@ -12,11 +12,8 @@
     "axios": "^0.21.0",
     "classnames": "2.2.6",
     "history": "4.10.1",
-<<<<<<< HEAD
     "materialui-grid": "^1.0.0",
-=======
     "jquery": "^3.5.1",
->>>>>>> 082535a13607c3653abf1fc196de2a1273ebd890
     "moment": "2.26.0",
     "node-sass": "4.14.1",
     "nouislider": "14.5.0",
