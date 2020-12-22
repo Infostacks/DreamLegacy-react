@@ -105,7 +105,7 @@ export default function Header(props) {
   });
   const brandComponent = <Button className={classes.title}>{brand}</Button>;
   return (
-    <Grid style={{height:"10  0px",backgroundColor : "#6a040f"}}> 
+    <Grid style={{height:"10  0px",backgroundColor : "#6a040fc"}}> 
     <AppBar className={appBarClasses}>
     
       <Toolbar className={classes.container}>
