@@ -118,7 +118,7 @@ export default function Header(props) {
           <Grid style={{margin:"10px"}}></Grid>
           
           <Button onClick={powerRoute} style={{backgroundColor : "#ffbe0b"}}>Powerball</Button>
-          <Grid style={{margin:"10px"}}></Grid>
+       
           <Button onClick={megaRoute} style={{backgroundColor : "#ffbe0b"}}>Megamillions</Button>
           <Grid style={{margin:"10px"}}></Grid>
           <Button onClick={stateRoute} style={{backgroundColor : "#ffbe0b"}}>State numbers</Button>
