@@ -105,7 +105,7 @@ export default function Header(props) {
   });
   const brandComponent = <Button className={classes.title}>{brand}</Button>;
   return (
-    <Grid> 
+    <Grid style={{height:"10  0px",backgroundColor : "#6a040f"}}> 
     <AppBar className={appBarClasses}>
     
       <Toolbar className={classes.container}>
@@ -124,13 +124,13 @@ export default function Header(props) {
           <Button onClick={stateRoute} style={{backgroundColor : "#ffbe0b"}}>State numbers</Button>
         </Box>
         </Grid >
-      <div style={{float:'right'}}>
+      <Grid style={{marginLeft:"450px",display:"flex"}}>
           <Button onClick={logInRoute} style={{backgroundColor : "#ffbe0b"}}>Log In</Button>
-          <Grid style={{margin:"10px"}}></Grid>
+          <Grid style={{margin:"4px"}}></Grid>
           <Button onClick={signUpRoute} style={{backgroundColor : "#ffbe0b"}}>SignUp</Button>
-          <Grid style={{margin:"10px"}}></Grid>
+          <Grid style={{margin:"4px"}}></Grid>
           <Button onClick={() => logout()} style={{backgroundColor : "#ffbe0b"}}>LogOut</Button>
-          </div>
+          </Grid>
           
        
        
