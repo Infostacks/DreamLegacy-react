@@ -1,0 +1,42 @@
+{
+  "files": {
+    "main.css": "/DreamLegacy-react/static/css/main.c5a3ee5c.chunk.css",
+    "main.js": "/DreamLegacy-react/static/js/main.4c0c1145.chunk.js",
+    "main.js.map": "/DreamLegacy-react/static/js/main.4c0c1145.chunk.js.map",
+    "runtime-main.js": "/DreamLegacy-react/static/js/runtime-main.4c4a4e6b.js",
+    "runtime-main.js.map": "/DreamLegacy-react/static/js/runtime-main.4c4a4e6b.js.map",
+    "static/js/2.1ae59232.chunk.js": "/DreamLegacy-react/static/js/2.1ae59232.chunk.js",
+    "static/js/2.1ae59232.chunk.js.map": "/DreamLegacy-react/static/js/2.1ae59232.chunk.js.map",
+    "index.html": "/DreamLegacy-react/index.html",
+    "precache-manifest.f416bf137f8b67dcc23541db80f1740a.js": "/DreamLegacy-react/precache-manifest.f416bf137f8b67dcc23541db80f1740a.js",
+    "service-worker.js": "/DreamLegacy-react/service-worker.js",
+    "static/css/main.c5a3ee5c.chunk.css.map": "/DreamLegacy-react/static/css/main.c5a3ee5c.chunk.css.map",
+    "static/js/2.1ae59232.chunk.js.LICENSE.txt": "/DreamLegacy-react/static/js/2.1ae59232.chunk.js.LICENSE.txt",
+    "static/media/US-Map.jpg": "/DreamLegacy-react/static/media/US-Map.2674f5a9.jpg",
+    "static/media/avatar.jpg": "/DreamLegacy-react/static/media/avatar.f1d71f77.jpg",
+    "static/media/bg.jpg": "/DreamLegacy-react/static/media/bg.a6b0ac32.jpg",
+    "static/media/bg4.jpg": "/DreamLegacy-react/static/media/bg4.199e9ec1.jpg",
+    "static/media/bg7.jpg": "/DreamLegacy-react/static/media/bg7.4b7346bf.jpg",
+    "static/media/christian.jpg": "/DreamLegacy-react/static/media/christian.56633ed3.jpg",
+    "static/media/clem-onojegaw.jpg": "/DreamLegacy-react/static/media/clem-onojegaw.c058841b.jpg",
+    "static/media/clem-onojeghuo.jpg": "/DreamLegacy-react/static/media/clem-onojeghuo.216ef03c.jpg",
+    "static/media/cynthia-del-rio.jpg": "/DreamLegacy-react/static/media/cynthia-del-rio.9813593c.jpg",
+    "static/media/kendall.jpg": "/DreamLegacy-react/static/media/kendall.e0508cc9.jpg",
+    "static/media/landing-bg.jpg": "/DreamLegacy-react/static/media/landing-bg.2674f5a9.jpg",
+    "static/media/mariya-georgieva.jpg": "/DreamLegacy-react/static/media/mariya-georgieva.4575c40b.jpg",
+    "static/media/olu-eletu.jpg": "/DreamLegacy-react/static/media/olu-eletu.4112cbc1.jpg",
+    "static/media/profile-bg.jpg": "/DreamLegacy-react/static/media/profile-bg.cde4cee2.jpg",
+    "static/media/studio-1.jpg": "/DreamLegacy-react/static/media/studio-1.ae0150c0.jpg",
+    "static/media/studio-2.jpg": "/DreamLegacy-react/static/media/studio-2.76e2987e.jpg",
+    "static/media/studio-3.jpg": "/DreamLegacy-react/static/media/studio-3.1d5451ce.jpg",
+    "static/media/studio-4.jpg": "/DreamLegacy-react/static/media/studio-4.e064d090.jpg",
+    "static/media/studio-5.jpg": "/DreamLegacy-react/static/media/studio-5.ef5c30ea.jpg",
+    "static/media/users.jpg": "/DreamLegacy-react/static/media/users.54c31458.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.4c4a4e6b.js",
+    "static/js/2.1ae59232.chunk.js",
+    "static/css/main.c5a3ee5c.chunk.css",
+    "static/js/main.4c0c1145.chunk.js"
+  ]
+}
