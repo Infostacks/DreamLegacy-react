@@ -2,7 +2,7 @@ import axios from 'axios'
 export const getProfiles = (data) => {
     return axios.request({
         method: 'GET',
-        url: 'http://localhost:8000/profiles',
+        url: 'https://dreamlottery-demoo.herokuapp.com/profiles',
         headers: {
             'Access-Control-Allow-Origin': '*',
             Accept: "application/json",
@@ -19,7 +19,7 @@ export const deleteUser = (data) => {
     console.log(data)
     return axios.request({
         method: 'DELETE',
-        url: 'http://localhost:8000/profiles/delete',
+        url: 'https://dreamlottery-demoo.herokuapp.com/profiles/delete',
         headers: {
             'Access-Control-Allow-Origin': '*',
             Accept: "application/json",

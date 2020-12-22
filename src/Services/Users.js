@@ -2,7 +2,7 @@ import axios from 'axios'
 export const getusers = (data) => {
     return axios.request({
         method: 'GET',
-        url: 'http://localhost:8000/users',
+        url: 'https://dreamlottery-demoo.herokuapp.com/users',
         headers: {
             'Access-Control-Allow-Origin': '*',
             Accept: "application/json",
@@ -18,7 +18,7 @@ export const editusers = (data) => {
     console.log(data)
     return axios.request({
         method: 'POST',
-        url: 'http://localhost:8000/users/edit',
+        url: 'https://dreamlottery-demoo.herokuapp.com/users/edit',
         headers: {
             'Access-Control-Allow-Origin': '*',
             Accept: "application/json",
@@ -35,7 +35,7 @@ export const deleteUser = (data) => {
     console.log(data)
     return axios.request({
         method: 'DELETE',
-        url: 'http://localhost:8000/users/delete',
+        url: 'https://dreamlottery-demoo.herokuapp.com/users/delete',
         headers: {
             'Access-Control-Allow-Origin': '*',
             Accept: "application/json",
@@ -53,7 +53,7 @@ export const addusers = (data) => {
     console.log(data)
     return axios.request({
         method: 'POST',
-        url: 'http://localhost:8000/users/add',
+        url: 'https://dreamlottery-demoo.herokuapp.com/users/add',
         headers: {
             'Access-Control-Allow-Origin': '*',
             Accept: "application/json",
