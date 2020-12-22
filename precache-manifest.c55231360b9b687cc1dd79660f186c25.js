@@ -1,10 +1,10 @@
 self.__precacheManifest = (self.__precacheManifest || []).concat([
   {
-    "revision": "5a1abff95d567fd60c9d6c26c792b553",
+    "revision": "00272758c2dcb321871c44829d332000",
     "url": "/DreamLegacy-react/index.html"
   },
   {
-    "revision": "8fe6dd59bd2c7db0b52b",
+    "revision": "566980a8e044bc0a895b",
     "url": "/DreamLegacy-react/static/css/main.c5a3ee5c.chunk.css"
   },
   {
@@ -16,8 +16,8 @@ self.__precacheManifest = (self.__precacheManifest || []).concat([
     "url": "/DreamLegacy-react/static/js/2.1ae59232.chunk.js.LICENSE.txt"
   },
   {
-    "revision": "8fe6dd59bd2c7db0b52b",
-    "url": "/DreamLegacy-react/static/js/main.4f9daf70.chunk.js"
+    "revision": "566980a8e044bc0a895b",
+    "url": "/DreamLegacy-react/static/js/main.090eda81.chunk.js"
   },
   {
     "revision": "af305a3e41ea4512245d",

@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/DreamLegacy-react/static/css/main.c5a3ee5c.chunk.css",
-    "main.js": "/DreamLegacy-react/static/js/main.4f9daf70.chunk.js",
-    "main.js.map": "/DreamLegacy-react/static/js/main.4f9daf70.chunk.js.map",
+    "main.js": "/DreamLegacy-react/static/js/main.090eda81.chunk.js",
+    "main.js.map": "/DreamLegacy-react/static/js/main.090eda81.chunk.js.map",
     "runtime-main.js": "/DreamLegacy-react/static/js/runtime-main.4c4a4e6b.js",
     "runtime-main.js.map": "/DreamLegacy-react/static/js/runtime-main.4c4a4e6b.js.map",
     "static/js/2.1ae59232.chunk.js": "/DreamLegacy-react/static/js/2.1ae59232.chunk.js",
     "static/js/2.1ae59232.chunk.js.map": "/DreamLegacy-react/static/js/2.1ae59232.chunk.js.map",
     "index.html": "/DreamLegacy-react/index.html",
-    "precache-manifest.3bbf417a4e215e2b254bd6997d919626.js": "/DreamLegacy-react/precache-manifest.3bbf417a4e215e2b254bd6997d919626.js",
+    "precache-manifest.c55231360b9b687cc1dd79660f186c25.js": "/DreamLegacy-react/precache-manifest.c55231360b9b687cc1dd79660f186c25.js",
     "service-worker.js": "/DreamLegacy-react/service-worker.js",
     "static/css/main.c5a3ee5c.chunk.css.map": "/DreamLegacy-react/static/css/main.c5a3ee5c.chunk.css.map",
     "static/js/2.1ae59232.chunk.js.LICENSE.txt": "/DreamLegacy-react/static/js/2.1ae59232.chunk.js.LICENSE.txt",
@@ -37,6 +37,6 @@
     "static/js/runtime-main.4c4a4e6b.js",
     "static/js/2.1ae59232.chunk.js",
     "static/css/main.c5a3ee5c.chunk.css",
-    "static/js/main.4f9daf70.chunk.js"
+    "static/js/main.090eda81.chunk.js"
   ]
 }

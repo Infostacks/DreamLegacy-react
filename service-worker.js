@@ -14,7 +14,7 @@
 importScripts("https://storage.googleapis.com/workbox-cdn/releases/4.3.1/workbox-sw.js");
 
 importScripts(
-  "/DreamLegacy-react/precache-manifest.3bbf417a4e215e2b254bd6997d919626.js"
+  "/DreamLegacy-react/precache-manifest.c55231360b9b687cc1dd79660f186c25.js"
 );
 
 self.addEventListener('message', (event) => {
