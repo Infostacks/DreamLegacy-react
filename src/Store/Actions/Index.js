@@ -9,7 +9,7 @@ export const getPoolsData = () => async(dispatch) => {
     // }
     await axios.request({
         method: 'GET',
-        url: 'http://localhost:8000/pools/powerball',
+        url: 'https://dreamlottery-demoo.herokuapp.com/pools/powerball',
         headers: {
             'Access-Control-Expose-Headers': 'Access-Control-Allow-Origin',
             // 'Access-Control-Allow-Origin': '*',
@@ -26,7 +26,7 @@ export const getPoolsData = () => async(dispatch) => {
 export const getMegaData = () => async(dispatch) => {  
         await axios.request({
             method: 'GET',
-            url: 'http://localhost:8000/pools/megamillion',
+            url: 'https://dreamlottery-demoo.herokuapp.com/pools/megamillion',
             headers: {
                 'Access-Control-Expose-Headers': 'Access-Control-Allow-Origin',
                 // 'Access-Control-Allow-Origin': '*',

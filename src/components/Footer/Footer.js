@@ -42,33 +42,33 @@ export default function Footer(props) {
   return (
     <footer style={{backgroundColor:'#ffba08'}} >
       <div className={classes.container}>
-        <div >
-        <GridContainer> 
-          <GridItem xs={12} sm={12} md={4} >
+        <div lg={4} md={6} xs={12}>
+        <GridContainer style={{textAlign:"center"}}> 
+          <GridItem xs={12} lg={6} md={4} >
           <InfoArea 
               title="Contact Us"
               icon={MailIcon}
               color="white"
               vertical>  
           </InfoArea>
-          <div style={{textAlign : "left"}}>
-            <div><AlternateEmailIcon></AlternateEmailIcon>test@yahoo.com
-            <br></br><PhoneIcon></PhoneIcon>+1234567</div>
+          <div lg={4} md={6} xs={12} style={{textAlign:"center"}}>
+            <div style={{textAlign:"center"}}lg={4} md={6} xs={12}><AlternateEmailIcon></AlternateEmailIcon>test@yahoo.com
+            <br style={{textAlign:"center"}}lg={4} md={6} xs={12}></br><PhoneIcon></PhoneIcon>+1234567</div>
           </div>
           </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem lg={4} md={6} xs={12}>
           <InfoArea 
               title="Social"
               icon={PeopleIcon}
               color="white"
               vertical>  
           </InfoArea>
-          <div style={{textAlign : "left"}}>
-          <div><FacebookIcon></FacebookIcon>Facebook</div>
-          <div><TwitterIcon>Twitter</TwitterIcon>Twitter</div>
+          <div lg={4} md={6} xs={12} style={{textAlign:"center"}}>
+          <div style={{textAlign:"center"}}><FacebookIcon></FacebookIcon>Facebook</div>
+          <div style={{textAlign:"center"}}><TwitterIcon>Twitter</TwitterIcon>Twitter</div>
           </div>
           </GridItem>
-          <GridItem xs={12} sm={12} md={4}>
+          <GridItem lg={4} md={6} xs={12}>
           <InfoArea 
               title="Legal"
               icon={DescriptionIcon}
@@ -76,7 +76,7 @@ export default function Footer(props) {
               vertical>
               
           </InfoArea>
-         <div style={{textAlign : "left"}}><AnnouncementIcon></AnnouncementIcon>Terms of Use</div>
+         <div lg={4} md={6} xs={12}><AnnouncementIcon></AnnouncementIcon>Terms of Use</div>
           </GridItem>
         </GridContainer>
         </div>

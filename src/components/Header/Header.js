@@ -105,7 +105,7 @@ export default function Header(props) {
   });
   const brandComponent = <Button className={classes.title}>{brand}</Button>;
   return (
-    <Grid style={{height:"10  0px",backgroundColor : "#6a040fc"}}> 
+    <Grid style={{height:"10  0px",backgroundColor : "#6a040fc"}} lg={4} md={6} xs={12}> 
     <AppBar className={appBarClasses}>
     
       <Toolbar className={classes.container}>
@@ -114,22 +114,22 @@ export default function Header(props) {
       
         <Grid>
         <Box display='flex' lg={4} xs={12} md={6} style={{whiteSpace:'6'}}>
-          <Button onClick={homeRoute} style={{backgroundColor : "#ffbe0b"}}>Home</Button>
+          <Button onClick={homeRoute} style={{backgroundColor : "#ffbe0b",margin:"15px"}}>Home</Button>
           <Grid style={{margin:"10px"}}></Grid>
           
-          <Button onClick={powerRoute} style={{backgroundColor : "#ffbe0b"}}>Powerball</Button>
-       
-          <Button onClick={megaRoute} style={{backgroundColor : "#ffbe0b"}}>Megamillions</Button>
+          <Button onClick={powerRoute} style={{backgroundColor : "#ffbe0b",margin:"15px"}}>Power Ball</Button>
           <Grid style={{margin:"10px"}}></Grid>
-          <Button onClick={stateRoute} style={{backgroundColor : "#ffbe0b"}}>State numbers</Button>
+          <Button onClick={megaRoute} style={{backgroundColor : "#ffbe0b",margin:"15px"}}>Mega Millions</Button>
+          <Grid style={{margin:"10px"}}></Grid>
+          <Button onClick={stateRoute} style={{backgroundColor : "#ffbe0b",margin:"15px"}}>State numbers</Button>
         </Box>
         </Grid >
       <Grid style={{marginLeft:"450px",display:"flex"}}>
-          <Button onClick={logInRoute} style={{backgroundColor : "#ffbe0b"}}>Log In</Button>
+          <Button onClick={logInRoute} style={{backgroundColor : "#ffbe0b",margin:"15px"}}>Log In</Button>
           <Grid style={{margin:"4px"}}></Grid>
-          <Button onClick={signUpRoute} style={{backgroundColor : "#ffbe0b"}}>SignUp</Button>
+          <Button onClick={signUpRoute} style={{backgroundColor : "#ffbe0b",margin:"15px"}}>SignUp</Button>
           <Grid style={{margin:"4px"}}></Grid>
-          <Button onClick={() => logout()} style={{backgroundColor : "#ffbe0b"}}>LogOut</Button>
+          <Button onClick={() => logout()} style={{backgroundColor : "#ffbe0b",margin:"15px"}}>LogOut</Button>
           </Grid>
           
        

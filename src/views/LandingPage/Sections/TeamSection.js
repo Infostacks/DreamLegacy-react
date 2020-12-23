@@ -77,10 +77,10 @@ function TeamSection(props) {
   // };
 
   return (
-      <div className={classes.section}style={{background:'#6a040f'}} >
-      <div style={{background:"#6a040f"}}>
+      <div className={classes.section}style={{background:'#6a040f'}} lg={4} md={6} xs={12}>
+      <div style={{background:"#6a040f"}}lg={4} md={6} xs={12}lg={4} md={6} xs={12}>
         <GridContainer style={{background:"#6a040f"}}>
-          <GridItem xs={6} sm={6} >
+          <GridItem lg={4} md={6} xs={12} >
             <Card
               style={{
                background:'#ffbe0b'
@@ -130,7 +130,7 @@ function TeamSection(props) {
                 <Button
                   href="#top"
                   // onClick={powerRoute}
-                  style={{ background: "#6a040f",color:'white' }}
+                  style={{ background: "#6a040f",color:'white' ,padding:"12px" }}
                   startIcon={<Icon>send</Icon>}
                 >
                   Previous Winning Numbers
@@ -138,7 +138,7 @@ function TeamSection(props) {
               </CardBody>
             </Card>
           </GridItem>
-          <GridItem xs={6} sm={6} >
+          <GridItem lg={4} md={6} xs={12} >
             <Card
               style={{
                 background:'#ffbe0b'
@@ -212,7 +212,7 @@ function TeamSection(props) {
                 <Button
                   href="#top"
                   // onClick={megaRoute}
-                  style={{ background: "#6a040f",color:'white' }}
+                  style={{ background: "#6a040f",color:'white',padding:"12px" }}
                   startIcon={<Icon>send</Icon>}
                 >
                   Previous Winning Numbers

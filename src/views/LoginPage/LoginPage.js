@@ -5,7 +5,7 @@ import { login } from 'Services/Authentication';
 import { makeStyles } from "@material-ui/core/styles";
 import InputAdornment from "@material-ui/core/InputAdornment";
 import Icon from "@material-ui/core/Icon";
-
+import {BounceLoader,BeatLoader,BarLoader} from "react-spinners"
 // @material-ui/icons
 import Email from "@material-ui/icons/Email";
 import GridContainer from "components/Grid/GridContainer.js";
@@ -32,8 +32,9 @@ export default function LoginPage(props) {
   const [emailError, setEmailError] = useState('');
   const [passwordError, setPasswordError] = useState('');
   const [state, setuseState] = useState('');
-  const [isLoading, setisLoading] = useState('');
+  const [isLoading, setisLoading] = useState(false);
   const [responseError, setresponseError] = useState('');
+  const {loading}=setisLoading;
   setTimeout(function () {
     setCardAnimation("");
   }, 700);
@@ -80,19 +81,20 @@ export default function LoginPage(props) {
 
 
 
-    setisLoading("true")
-
+    setisLoading(true) 
 
 
     if (valid()) {
       const result = await getdata()
       console.log('hello', result)
       localStorage.setItem('Token', result.token);
+      
+    
       if (result && result.message == "User Authenticated") {
 
 
 
-        setisLoading("false")
+        setisLoading(false)
 
 
         props.history.push('/landing-page')
@@ -101,7 +103,7 @@ export default function LoginPage(props) {
 
 
         setresponseError("result.message")
-        setisLoading("false")
+        setisLoading(false)
 
       }
     }
@@ -197,8 +199,9 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary=" size="lg" onClick={() => submit()}>
-                      LOGIN
+                    <Button simple color="primary=" size="lg" onClick={() => submit()} disabled={loading}
+                    >
+                      {loading ? 'Loading' : "login"}
                     </Button>
                     <Button simple color="primary" size="lg" onClick={() => register()}>
                       Signup

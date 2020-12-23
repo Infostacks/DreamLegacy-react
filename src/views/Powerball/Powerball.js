@@ -87,7 +87,7 @@ const useStyles = makeStyles({
 
 
   return (
-    <div>
+    <div lg={4} md={6} xs={12}>
       <Header
         color="transparent"
         routes={dashboardRoutes}
@@ -99,10 +99,10 @@ const useStyles = makeStyles({
         }}
         {...rest}
       />
-      <Parallax style={{height:'400px',backgroundColor:'#6a040f'}}>
+      <Parallax style={{height:'400px',backgroundColor:'#6a040f'}}lg={4} md={6} xs={12}>
         <div className={classes.container}>
-          <GridContainer>
-            <GridItem  style={{height:'60px'}}>
+          <GridContainer lg={4} md={6} xs={12}>
+            <GridItem  style={{height:'60px'}} lg={4} md={6} xs={12} >
               <h1 style={{color : "#ffbe0b"}}>PowerBall Winning Numbers</h1>
               <br/>
             </GridItem>
@@ -133,7 +133,7 @@ const useStyles = makeStyles({
             <Card style={{background: "#6a040f"}}>
               <CardBody>
 
-                <div>
+                <div lg={4} md={6} xs={12}>
                     <h4 style={{color : "#ffbe0b"}}>Current EST Jackpot</h4>
                     <h3 style={{wordSpacing:'50px',color:'#ffbe0b'}}>$310,000,000</h3>      
                     </div>
@@ -143,7 +143,7 @@ const useStyles = makeStyles({
                   <Card style={{background: "#6a040f"}}>
               <CardBody>
 
-                <div>
+                <div lg={4} md={6} xs={12}> 
                     <h4 style={{color : "#ffbe0b"}}>Cash Value</h4>
                     <h3 style={{wordSpacing:'50px',color:'#ffbe0b'}}>$238,000,000</h3>      
                     </div>
@@ -151,22 +151,22 @@ const useStyles = makeStyles({
                   </Card>
                   <Card style={{background: "#6a040f"}}>
               <CardBody>
-<div>
+<div lg={4} md={6} xs={12}>
                     
-                    <TableContainer component={Paper}>
-      <Table className={classes.table} aria-label="customized table">
-        <TableHead>
-          <TableRow style={{color:'#ffbe0b'}}>
-            <StyledTableCell>LATEST NUMBERS</StyledTableCell>
-            <StyledTableCell align="right">Jackpot</StyledTableCell>
-            <StyledTableCell align="right">Cash Values</StyledTableCell>
+                    <TableContainer component={Paper} lg={4} md={6} xs={12} >
+      <Table className={classes.table} aria-label="customized table" lg={4} md={6} xs={12}>
+        <TableHead lg={4} md={6} xs={12}>
+          <TableRow style={{color:'#ffbe0b'}} lg={4} md={6} xs={12}>
+            <StyledTableCell lg={4} md={6} xs={12}>LATEST NUMBERS</StyledTableCell>
+            <StyledTableCell align="right" lg={4} md={6} xs={12}>Jackpot</StyledTableCell>
+            <StyledTableCell align="right" lg={4} md={6} xs={12}>Cash Values</StyledTableCell>
           </TableRow>
         </TableHead>
-        <TableBody>
+        <TableBody lg={4} md={6} xs={12}>
           {props.tdata &&
           props.tdata.map((y, index) => (
-            <StyledTableRow >
-              <StyledTableCell component="th" scope="row">
+            <StyledTableRow lg={4} md={6} xs={12}>
+              <StyledTableCell component="th" scope="row" lg={4} md={6} xs={12}>
                 {y.d}
                 <grid style={{marginLeft:"100px"}}></grid>
                 {y.n &&
@@ -202,9 +202,9 @@ const useStyles = makeStyles({
      <Card style={{background: "#6a040f", alignItems:"center"}}>
        <CardBody>
     <div>
-                    <Button style={{backgroundColor : "#f4a261"}}>Past Winning Numbers</Button>
+                    <Button style={{backgroundColor : "#ffbe0b"}}>Past Winning Numbers</Button>
                     </div>   <div>
-                    <Button style={{backgroundColor : "#f4a261"}}>Prizes and ODDS</Button>
+                    <Button style={{backgroundColor : "#ffbe0b",minWidth:"-webkit-fill-available"}}>Prizes and ODDS</Button>
                    
                     </div>
                     </CardBody>
