@@ -25,6 +25,11 @@ const getdataReducer = (state = initialState.data, action) => {
                 ...state,
                 megaData: action.data
             }
+            case "GET_POWER_DATA":
+                return {
+                    ...state,
+                    powerData: action.data
+                }
         case 'SET_SELECTED_STATE': 
         return {
             ...state,

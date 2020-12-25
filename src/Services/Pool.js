@@ -34,3 +34,23 @@ export const getMega = (data) => {
             response
         ))
 }
+
+
+
+
+export const getPowerData = (data) => {
+   
+    return axios.request({
+        method: 'GET',
+        url: 'https://localhost:5000/pools/power',
+        headers: {
+            'Access-Control-Expose-Headers': 'Access-Control-Allow-Origin',
+            // 'Access-Control-Allow-Origin': '*',
+            Accept: "application/json",
+            "Content-Type": "application/json"
+        }
+    })
+        .then(response => (
+            response
+        ))
+}

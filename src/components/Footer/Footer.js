@@ -10,6 +10,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import GridContainer from "components/Grid/GridContainer.js";
 import GridItem from "components/Grid/GridItem.js";
 import { Grid } from "@material-ui/core";
+import Paper from '@material-ui/core/Paper';
 import Card from "@material-ui/core/Card";
 import CardBody from "components/Card/CardBody.js";
 import CardFooter from "components/Card/CardFooter.js";
@@ -40,49 +41,63 @@ export default function Footer(props) {
   });
 
   return (
-    <footer style={{backgroundColor:'#ffba08'}} >
-      <div className={classes.container}>
-        <div lg={4} md={6} xs={12}>
-        <GridContainer style={{textAlign:"center"}}> 
-          <GridItem xs={12} lg={6} md={4} >
-          <InfoArea 
+
+   
+
+    <Grid container spacing={3} style={{backgroundColor:"#1e1e1e",textAlign:"center"}}>
+    <Grid item xs>
+      
+      <InfoArea 
               title="Contact Us"
               icon={MailIcon}
               color="white"
               vertical>  
           </InfoArea>
-          <div lg={4} md={6} xs={12} style={{textAlign:"center"}}>
-            <div style={{textAlign:"center"}}lg={4} md={6} xs={12}><AlternateEmailIcon></AlternateEmailIcon>test@yahoo.com
-            <br style={{textAlign:"center"}}lg={4} md={6} xs={12}></br><PhoneIcon></PhoneIcon>+1234567</div>
-          </div>
-          </GridItem>
-          <GridItem lg={4} md={6} xs={12}>
-          <InfoArea 
+         
+          
+
+    </Grid>
+    <Grid item xs>
+      
+      <InfoArea 
               title="Social"
               icon={PeopleIcon}
               color="white"
               vertical>  
           </InfoArea>
-          <div lg={4} md={6} xs={12} style={{textAlign:"center"}}>
-          <div style={{textAlign:"center"}}><FacebookIcon></FacebookIcon>Facebook</div>
-          <div style={{textAlign:"center"}}><TwitterIcon>Twitter</TwitterIcon>Twitter</div>
-          </div>
-          </GridItem>
-          <GridItem lg={4} md={6} xs={12}>
-          <InfoArea 
+        
+
+     
+    </Grid>
+    <Grid item xs>
+      
+
+      <InfoArea 
               title="Legal"
               icon={DescriptionIcon}
               color="white"
               vertical>
               
           </InfoArea>
-         <div lg={4} md={6} xs={12}><AnnouncementIcon></AnnouncementIcon>Terms of Use</div>
-          </GridItem>
-        </GridContainer>
-        </div>
-      </div>
+       
+     
+    </Grid>
+  </Grid>
 
-    </footer>
+
+    
+  
+        
+         
+         
+          
+        
+       
+        
+       
+        
+ 
+ 
   );
 }
 
