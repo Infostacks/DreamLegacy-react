@@ -16,18 +16,25 @@ import styles from "assets/jss/material-kit-react/views/landingPageSections/team
 import $ from "jquery";
 import team1 from "assets/img/faces/avatar.jpg";
 import team2 from "assets/img/faces/christian.jpg";
-import { getpools,getMega } from "Services/Pool";
+import { getpools, getMega } from "Services/Pool";
 import team3 from "assets/img/faces/kendall.jpg";
-import { Grid } from "@material-ui/core";
+import { Divider, Grid } from "@material-ui/core";
 import { useHistory } from "react-router-dom";
 import { array } from "prop-types";
 import _ from "lodash";
-import {connect} from "react-redux";
+import { connect } from "react-redux";
 import { LocationDisabledSharp } from "@material-ui/icons";
 import * as dataActions from '../../../Store/Actions/Index'
 const useStyles = makeStyles(styles);
+let primaryColor = "#2e294e";
+let wordColor = "#3f566d";
+let secColor = "#f46036";
+let headingColor ="#c5d86d";
+let textColor="white";
+let backColor="#2e294e"
 
 function TeamSection(props) {
+
   const [poolsdata, setpools] = useState("");
   const [megaData, setMega] = useState("");
   const classes = useStyles();
@@ -38,34 +45,42 @@ function TeamSection(props) {
     classes.imgRoundedCircle,
     classes.imgFluid
   );
+  const powerRoute = () => {
+    history.push("/powerball");
+  }
 
-  
-  useEffect(()=>{
-   (async() => {
-    // await props.getPoolsData();
-    // const poolsResult = await getpools();
-    // setpools(poolsResult.data)
-  await props.getPoolsData();
-  await props.getMegaData();
-    
-    // const megaData = await getMega();
-  
-    
-    console.log('megadata',megaData.data)
+  const megaRoute = () => {
+    history.push("/megamillions");
+   
+
+  }
+
+  useEffect(() => {
+    (async () => {
+      // await props.getPoolsData();
+      // const poolsResult = await getpools();
+      // setpools(poolsResult.data)
+      await props.getPoolsData();
+      await props.getMegaData();
+
+      // const megaData = await getMega();
 
 
-    
-  //   let res =megaData && megaData.data && _.map(megaData.data.s,(state, index) => {
-  //     return { label: state.i.sn, abbr: state.i.s, key: index};
+      console.log('megadata', megaData.data)
 
-  // });
-  // if (res && !_.isEmpty(res)) {
-  //   setStates(res);
-  // }
-  // console.log('states data', res)
-     
-})();
-  },[]);
+
+
+      //   let res =megaData && megaData.data && _.map(megaData.data.s,(state, index) => {
+      //     return { label: state.i.sn, abbr: state.i.s, key: index};
+
+      // });
+      // if (res && !_.isEmpty(res)) {
+      //   setStates(res);
+      // }
+      // console.log('states data', res)
+
+    })();
+  }, []);
   // const powerRoute = () => {
   //   let path1 = "/powerball";
   //   history.push(path1);
@@ -77,19 +92,15 @@ function TeamSection(props) {
   // };
 
   return (
-      <div className={classes.section}style={{background:'#6a040f'}} lg={4} md={6} xs={12}>
-      <div style={{background:"#6a040f"}}lg={4} md={6} xs={12}lg={4} md={6} xs={12}>
-        <GridContainer style={{background:"#6a040f"}}>
-          <GridItem lg={4} md={6} xs={12} >
-            <Card
-              style={{
-               background:'#ffbe0b'
-              }}
-            >
-              <CardBody>
-                <h2 style={{color:'white'}}>POWERBALL</h2>
-                <h3 style={{color:'white'}}>Winning Numbers for today:</h3>
-                <h4 style={{color:'white'}}>Current EST Jackpot: </h4>
+    <div className={classes.section} style={{ background: primaryColor,textAlign:"center" }}  md={6} xs={12}>
+        <div style={{backgroundColor:primaryColor,display:"flex"}}>
+        <Grid container style={{textAlign:"-webkit-center"}}>
+        <Grid item md={6} xs={12}>
+        <Card style={{ background: secColor, width: "30em",textAlign:"center" }}>
+              <CardBody lg={4} md={6} xs={12}>
+                <h3 style={{ color:primaryColor,fontFamily:"serif" }}><span style={{fontWeight:"600"}}>POWER</span><span style={{color:"white"}}>BALL</span></h3>
+                <h4 style={{ color: textColor }}>Winning Numbers for today:</h4>
+                <h4 style={{ color: textColor }}>Current EST Jackpot: </h4>
                 <div style={{
                   display: 'flex',
                   flexDirection: 'row',
@@ -98,7 +109,7 @@ function TeamSection(props) {
                   {props.pools &&
                     props.pools[0].field_winning_numbers.split(',').map((y, index) => (
                       <div class="numbers-ball" style={{
-                        backgroundColor: '#6a040f',
+                        backgroundColor:backColor ,
                         width: '35px',
                         height: '35px',
                         borderRadius: '20px',
@@ -109,44 +120,38 @@ function TeamSection(props) {
                         justifyContent: 'center',
                         fontSize: '19px',
                         fontFamily: 'ProximaNova-Bold',
-                        color: 'white',
+                        color: textColor,
                       }}>
                         {y}
                       </div>
                     ))}
-                 
-                  
+
+
                 </div>
-                <div>
-                  <GridContainer>
-                    <GridItem style={{ color: "white" }} xs={12} sm={12} md={4}>
+                <div style={{color:textColor}}>
+                 
                       Cash Value : $157,900,000
-                    </GridItem>
-                    <GridItem style={{ color: "white" }} xs={12} sm={12} md={4}>
+                  </div><div style={{color:textColor}}>
                       Next Draw : Tomorrow
-                    </GridItem>
-                  </GridContainer>
+                 
                 </div>
                 <Button
                   href="#top"
-                  // onClick={powerRoute}
-                  style={{ background: "#6a040f",color:'white' ,padding:"12px" }}
+              
+                  onClick={powerRoute}
+                  style={{ background: backColor, color: textColor, padding: "12px" }}
                   startIcon={<Icon>send</Icon>}
                 >
                   Previous Winning Numbers
                 </Button>
               </CardBody>
-            </Card>
-          </GridItem>
-          <GridItem lg={4} md={6} xs={12} >
-            <Card
-              style={{
-                background:'#ffbe0b'
-              }}
-            >
-              <CardBody>
-                <h2 style={{color:"white"}}>MEGAMILLIONS</h2>
-                <h3 style={{color:"white"}}>Winning Numbers for today:</h3>
+            </Card> 
+   </Grid>
+   <Grid item md={6} xs={12}>
+     <Card style={{ background: secColor, width: "30em",textAlign:"center" ,marginLeft:"1em"}} >
+              <CardBody lg={4} md={6} xs={12}>
+              <h3 style={{ color:primaryColor,fontFamily:"serif" }}><span style={{fontWeight:"600"}}>MEGA</span><span style={{color:"white"}}>MILLIONS</span></h3>
+                <h4 style={{ color: textColor }}>Winning Numbers for today:</h4>
 
                 <div style={{
                   display: 'flex',
@@ -172,75 +177,74 @@ function TeamSection(props) {
                   ))} */}
                 </div>
                 {/* <img src={require("assets/img/megamillions.JPG")}></img> */}
-                <h4 style={{color:"white"}}>Current EST Jackpot: </h4>
+                <h4 style={{ color: textColor }}>Current EST Jackpot: </h4>
                 <div style={{
                   display: 'flex',
                   flexDirection: 'row',
                   justifyContent: 'center',
                 }}>
                   {props.mega && props.mega.map((y, index) => (
-                      <div class="numbers-ball" style={{
-                        backgroundColor: '#6a040f',
-                        width: '35px',
-                        height: '35px',
-                        borderRadius: '20px',
-                        textAlign: 'center',
-                        alignItems: 'center',
-                        display: 'flex',
-                        margin: '10px 8px 10px 0',
-                        justifyContent: 'center',
-                        fontSize: '19px',
-                        fontFamily: 'ProximaNova-Bold',
-                        color: 'white',
-                      }}>
-                        {y}
-                      </div>
-                    ))}
-                 
-                  
+                    <div class="numbers-ball" style={{
+                      backgroundColor:backColor,
+                      width: '35px',
+                      height: '35px',
+                      borderRadius: '20px',
+                      textAlign: 'center',
+                      alignItems: 'center',
+                      display: 'flex',
+                      margin: '10px 8px 10px 0',
+                      justifyContent: 'center',
+                      fontSize: '19px',
+                      fontFamily: 'ProximaNova-Bold',
+                      color: textColor,
+                    }}>
+                      {y}
+                    </div>
+                  ))}
+
+
                 </div>
-                <div>
-                  <GridContainer>
-                    <GridItem style={{ color: "white" }} xs={12} sm={12} md={4}>
+                <div style={{color:textColor}}>
                       Cash Value : $155,700,000
-                    </GridItem>
-                    <GridItem style={{ color: "white" }} xs={12} sm={12} md={4}>
+                    </div>
+                    <div style={{color:textColor}}>
                       Next Draw : Tomorrow
-                    </GridItem>
-                  </GridContainer>
+                
                 </div>
                 <Button
                   href="#top"
-                  // onClick={megaRoute}
-                  style={{ background: "#6a040f",color:'white',padding:"12px" }}
+                  onClick={megaRoute}
+                  style={{ background: primaryColor, color: textColor, padding: "12px" }}
                   startIcon={<Icon>send</Icon>}
                 >
                   Previous Winning Numbers
                 </Button>
               </CardBody>
             </Card>
-          </GridItem>
-        </GridContainer>
-      </div>
-    </div>
+            </Grid>
+            </Grid>
+            </div>
+    
+     
+     </div>
   );
 }
 
 const mapStateToProps = (state) => {
   console.log('state', state)
   return {
-    pools: state && state.data && state.data.poolsData && state.data.poolsData.data, 
-   mega: state && state.data && state.data.megaData && state.data.megaData.data && 
-   state.data.megaData.data.s && state.data.megaData.data.s[0] && state.data.megaData.data.s[0].g && 
-   state.data.megaData.data.s[0].g[0] && state.data.megaData.data.s[0].g[0].h 
-   && state.data.megaData.data.s[0].g[0].h[0] && state.data.megaData.data.s[0].g[0].h[0].n 
+    pools: state && state.data && state.data.poolsData && state.data.poolsData.data,
+    mega: state && state.data && state.data.megaData && state.data.megaData.data &&
+      state.data.megaData.data.s && state.data.megaData.data.s[0] && state.data.megaData.data.s[0].g &&
+      state.data.megaData.data.s[0].g[0] && state.data.megaData.data.s[0].g[0].h
+      && state.data.megaData.data.s[0].g[0].h[0] && state.data.megaData.data.s[0].g[0].h[0].n
   };
 };
 const mapDispatchToProps = (dispatch) => {
   return {
-    getPoolsData:() => dispatch(dataActions.getPoolsData()),
-    getMegaData:() => dispatch(dataActions.getMegaData())
-   }
+    getPoolsData: () => dispatch(dataActions.getPoolsData()),
+    getMegaData: () => dispatch(dataActions.getMegaData())
+  }
 
 };
 // // Exports

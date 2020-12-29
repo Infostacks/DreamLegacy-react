@@ -199,7 +199,7 @@ export default function LoginPage(props) {
                     />
                   </CardBody>
                   <CardFooter className={classes.cardFooter}>
-                    <Button simple color="primary=" size="lg" onClick={() => submit()} disabled={loading}
+                    <Button simple color="primary" size="lg" onClick={() => submit()} disabled={loading}
                     >
                       {loading ? 'Loading' : "login"}
                     </Button>

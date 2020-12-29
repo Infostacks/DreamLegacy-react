@@ -21,10 +21,17 @@ import styles from "assets/jss/material-kit-react/views/landingPage.js";
 import { Divider } from "@material-ui/core";
 import {connect} from "react-redux";
 import _ from "lodash";
+import hero from "../../assets/img/hero.jpg"
 import { useHistory } from "react-router-dom";
 import * as dataActions from '../../Store/Actions/Index'
 import { getMegaData } from '../../Store/Actions/Index'
 
+let primaryColor = "#2e294e";
+let wordColor = "#3f566d";
+let secColor = "#f46036";
+let headingColor ="#c5d86d";
+let textColor="white";
+let backColor="#2e294e"
 
 const dashboardRoutes = [];
 
@@ -90,15 +97,14 @@ function States(props) {
         }}
         // {...rest}
       />
-      <Parallax filter image={require("assets/img/US-Map.jpg")}>
-        <div className={classes.container}>
+       <div style={{ backgroundImage: "url(" + hero + ")", paddingTop: "70px", paddingBottom: "70px",textAlign:"center" }}>        
         {props.mega &&
           props.mega.map((y, index) => (
-            <Button onClick={()=> setState(y)} style={{ background: "#ffbe0b", align: "center" }}>
+            <Button onClick={()=> setState(y)} style={{ background: secColor, align: "center" }}>
               {y.i.sn}, {y.i.s}
             </Button>
           ))}
-        </div>
+      
           {/* <div className={classes.container}>
         {states1 && states1.data && states1.data.s poolsdata.data.s
           states1.map((y, index) => (
@@ -107,7 +113,7 @@ function States(props) {
             </Button>
           ))}
         // </div> */}
-      </Parallax>
+  </div>
       <Card style={{width:'250px',display:'contents'}}>
        
       </Card>
@@ -129,6 +135,7 @@ const mapDispatchToProps = (dispatch) => {
     getPoolsData:() => dispatch(dataActions.getPoolsData()),
     getMegaData:() => dispatch(dataActions.getMegaData()),
   setSelectedData: (payload) => dispatch(dataActions.setSelectedState(payload))
+  
    }
 
 };

@@ -17,7 +17,7 @@ export const getpools = (data) => {
 export const getPowerData = (data) => {
     return axios.request({
         method: 'POST',
-        url: 'https://localhost:5000/pools/power',
+        url: 'https://dreamlottery-demoo.herokuapp.com/pools/power',
         headers: {
             'Access-Control-Allow-Origin': '*',
             Accept: "application/json",

@@ -35,6 +35,11 @@ const getdataReducer = (state = initialState.data, action) => {
             ...state,
             selectedStateData: action.data
         }
+        case "GET_ACTIVE_TAB":
+            return {
+                ...state,
+                activeTab: action.data
+            }
         default:
             return state
     }

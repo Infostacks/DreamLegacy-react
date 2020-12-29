@@ -7,7 +7,7 @@ import PropTypes from "prop-types";
 import { Grid } from "@material-ui/core";
 import GridItem from "components/Grid/GridItem.js";
 import { makeStyles } from "@material-ui/core/styles";
-import Button from "@material-ui/core/Button";  
+import Button from "@material-ui/core/Button";
 import AppBar from '@material-ui/core/AppBar';
 import { withStyles } from '@material-ui/core/styles';
 import Toolbar from '@material-ui/core/Toolbar';
@@ -27,15 +27,16 @@ import Hidden from "@material-ui/core/Hidden";
 import Drawer from "@material-ui/core/Drawer";
 import Box from '@material-ui/core/Box';
 // @material-ui/icons
-
+import { connect } from "react-redux";
 import AssignmentIndIcon from '@material-ui/icons/AssignmentInd';
 import AccountCircleIcon from '@material-ui/icons/AccountCircle';
 // core components
 import styles from "assets/jss/material-kit-react/components/headerStyle.js";
-import { useHistory,withRouter } from "react-router-dom";
-
+import { useHistory, withRouter } from "react-router-dom";
+import * as dataActions from '../../Store/Actions/Index'
 // import colors from '../../assets/colors';
-let primaryColor= "#17242c";
+let primaryColor = "#17242c";
+let secColor = "#2e294e";
 
 const AntTabs = withStyles({
   root: {
@@ -49,7 +50,7 @@ const AntTabs = withStyles({
 const AntTab = withStyles((theme) => ({
   root: {
     textTransform: 'none',
-    minWidth: 72,
+    minWidth: 82,
     fontWeight: theme.typography.fontWeightRegular,
     marginRight: theme.spacing(4),
     fontFamily: [
@@ -132,17 +133,18 @@ const useStyles = makeStyles((theme) => ({
 //   },
 // }));
 
-export default function Header(props) {
+ function Header(props) {
   const [value, setValue] = React.useState(0);
   const classes = useStyles();
-    
+
   const history = useHistory();
   const [auth, setAuth] = React.useState(true);
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
 
   const handleChange = (event) => {
-    setAuth(event.target.checked);
+    // setAuth(event.target.checked); 
+    props.setActiveState(event.target.checked)
   };
 
   const handleMenu = (event) => {
@@ -154,33 +156,44 @@ export default function Header(props) {
   };
 
 
-  const homeRoute=() =>{
+  const homeRoute = () => {
 
-   history.push("/landing-page");
+    history.push("/landing-page");
 
   }
   const signUpRoute = () => {
-   history.push("/signup");
-  
+    history.push("/signup");
+
   }
-  
+
   const logInRoute = () => {
-   history.push("/login");
-  
-  }
-  const powerRoute = () => {
-   history.push("/powerball");
-  
-  }
-
-  const stateRoute=() =>{
-   history.push("/states");
+    history.push("/login");
 
   }
-  
-  const megaRoute = () => {
-   history.push("/megamillions");
-  
+  const powerRoute = (event) => {
+    history.push("/powerball");
+    props.setActiveState(event.target.checked)
+
+  }
+
+  const stateRoute = (event) => {
+    history.push("/states");
+    props.setActiveState(event.target.checked)
+
+  }
+
+  const megaRoute = (event) => {
+    history.push("/megamillions");
+      // setAuth(event.target.checked);
+      props.setActiveState(event.target.checked)
+    
+
+  }
+
+
+  const landingRoute = () => {
+    history.push("/landing-page");
+
   }
 
   const [mobileOpen, setMobileOpen] = React.useState(false);
@@ -199,7 +212,7 @@ export default function Header(props) {
     localStorage.removeItem('Token');
     props.history.push('/login');
 
-};
+  };
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
@@ -232,77 +245,68 @@ export default function Header(props) {
   const brandComponent = <Button className={classes.title}>{brand}</Button>;
   return (
 
-    <div className={classes.root}lg={4} xs={12} md={6}>
+    <div className={classes.root} lg={4} xs={12} md={6}>
       <FormGroup >
       </FormGroup>
-      <AppBar position="static" style={{background: primaryColor}}>
-        <Toolbar>
-        <Typography variant="h6" className={classes.title}>
+      <AppBar position="static" style={{ background: secColor }}md={6} xs={12}>
+        <Toolbar xs={12} md={4}>
+          <Typography variant="6" className={classes.title} onClick={landingRoute}style={{fontFamily:"serif"}}>
             DreamLegacy
           </Typography>
           {/* <IconButton edge="start" className={classes.menuButton} color="inherit" aria-label="menu">
             <MenuIcon />
           </IconButton> */}
           {/* <div className={classes.demo2} style={{background:"#974918",marginTop:"25px"}}> */}
-  <StyledTabs value={value} onChange={handleChange} style={{background: primaryColor}}>
-    <StyledTab label="MegaMillions" onClick={megaRoute} />
-    <StyledTab label="PowerBall" onClick={powerRoute}/>
-    <StyledTab label="States Numbers"  onClick={stateRoute}/>
-  </StyledTabs>
-  <Typography className={classes.padding} />
-{/* </div> */}
-          {auth && (
-            <div>
-              <IconButton
-                aria-label="account of current user"
-                aria-controls="menu-appbar"
-                aria-haspopup="true"
-                onClick={handleMenu}
-                color="inherit"
-              >
-                <AccountCircle />
-              </IconButton>
-              <FormControlLabel
-          control={<Switch checked={auth} onChange={handleChange} aria-label="login switch" />}
-          label={auth ? 'Logout' : 'Login'}
-        />
-              <Menu
-                id="menu-appbar"
-                anchorEl={anchorEl}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={open}
-                onClose={handleClose}
-              >
-                <MenuItem onClick={handleClose}>Profile</MenuItem>
-                <MenuItem onClick={handleClose}>My account</MenuItem>
-              </Menu>
-            </div>
-          )}
+          <StyledTabs value={props.tabData} onChange={handleChange} style={{ background: secColor,color:"white" }} xs={12} md={6}>
+            <StyledTab label="MegaMillions" onClick={megaRoute} />
+            <StyledTab label="PowerBall" onClick={powerRoute} />
+            <StyledTab label="States Numbers" onClick={stateRoute} />
+          </StyledTabs>
+          <Typography className={classes.padding} />
+          {/* </div> */}
+          
+          
         </Toolbar>
       </AppBar>
     </div>
   );
+
+
+
 }
-//     <Grid style={{height:"10  0px",backgroundColor : "#6a040fc"}} lg={4} md={6} xs={12}> 
+
+
+
+const mapStateToProps = (state) => {
+ 
+  return {
+tabData: state && state.data.activeTab
+  };
+};
+const mapDispatchToProps = (dispatch) => {
+  return {
+    setActiveState: (payload) => dispatch(dataActions.setActiveTab(payload))
+  }
+
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);
+
+
+
+
+//     <Grid style={{height:"10  0px",backgroundColor : "#6a040fc"}} lg={4} md={6} xs={12}>
 //     <AppBar className={appBarClasses}>
-    
+
 //       <Toolbar className={classes.container}>
-     
-   
-      
+
+
+
 //         <Grid >
 //        <div style={{display:"flex"}}>
 //           <Button onClick={homeRoute} style={{backgroundColor : "#974918",marginTop:"auto"}}>Home</Button>
 //           <Grid style={{margin:"10px"}}></Grid>
-          
+
 //           <Button onClick={powerRoute} style={{backgroundColor : "#974918",marginTop:"auto"}}>PowerBall</Button>
 //           <Grid style={{margin:"10px"}}></Grid>
 //           <Button onClick={megaRoute} style={{backgroundColor : "#974918",marginTop:"auto"}}>MegaMillions</Button>
@@ -317,9 +321,9 @@ export default function Header(props) {
 //           <Grid style={{margin:"4px"}}></Grid>
 //           <Button onClick={() => logout()} style={{backgroundColor : "#974918",marginTop:"auto"}}>LogOut</Button>
 //           </Grid>
-          
-       
-       
+
+
+
 
 //         {leftLinks !== undefined ? brandComponent : null}
 //         <div className={classes.flex}>
@@ -342,7 +346,7 @@ export default function Header(props) {
 //           >
 //           </IconButton>
 //         </Hidden>
-       
+
 //       </Toolbar>
 
 //       {/* <Hidden mdUp implementation="js"> */}

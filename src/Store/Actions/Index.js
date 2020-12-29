@@ -31,7 +31,7 @@ export const getPowerData = () => async (dispatch) => {
     // }
     await axios.request({
         method: 'GET',
-        url: 'http://localhost:8000/pools/power',
+        url: 'https://dreamlottery-demoo.herokuapp.com/pools/power',
         headers: {
             'Access-Control-Expose-Headers': 'Access-Control-Allow-Origin',
             // 'Access-Control-Allow-Origin': '*',
@@ -70,6 +70,8 @@ export const setSelectedState = (data) => async (dispatch) => {
 
 
 
-
+export const setActiveTab = (data)=> (dispatch)=>{
+    return dispatch ({type:"SET_ACTIVE_TAB",data:data})
+}
 
 

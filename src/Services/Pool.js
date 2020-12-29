@@ -42,7 +42,7 @@ export const getPowerData = (data) => {
    
     return axios.request({
         method: 'GET',
-        url: 'https://localhost:5000/pools/power',
+        url: 'https://dreamlottery-demoo.herokuapp.com/power',
         headers: {
             'Access-Control-Expose-Headers': 'Access-Control-Allow-Origin',
             // 'Access-Control-Allow-Origin': '*',

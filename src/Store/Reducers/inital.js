@@ -3,6 +3,7 @@ export const initialState = {
         poolsData: null,
         megaData: null,
         powerData:null,
-        selectedStateData: null
+        selectedStateData: null,
+        activeTab:null
     }
 }

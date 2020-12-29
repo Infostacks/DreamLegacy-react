@@ -53,7 +53,7 @@ const persistedReducer = persistReducer( persistConfig,rootReducer);
 const PrivateRoute = ({ component: component, ...rest }) => (
   <Route {...rest} render={()   =>( 
   localStorage.getItem('Token') != null ?
-    <Route exact path='/landing-page' render={props => <LandingPage{...props} /> } /> :
+    <Route exact path='/dash' render={props => <LandingPage{...props} /> } /> :
 
     <Redirect exact to='/login' />
 )
@@ -68,7 +68,7 @@ ReactDOM.render(
   <Router history={history}>
     <Switch>
       <Route path="/login" component={LoginPage} />
-
+<Route exact path="/" component={LandingPage}/>
       <Route path="/admin" component={Dash} />
       <Route path="/Users" component={Users} />
       <Route path="/Group" component={DataTable} />

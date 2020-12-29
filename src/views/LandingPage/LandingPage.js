@@ -14,7 +14,7 @@ import GridItem from "components/Grid/GridItem.js";
 import Button from "components/CustomButtons/Button.js";
 // import HeaderLinks from "components/Header/HeaderLinks.js";
 import Parallax from "components/Parallax/Parallax.js";
-
+import hero from "../../assets/img/hero.jpg"
 import styles from "assets/jss/material-kit-react/views/landingPage.js";
 
 // Sections for this page
@@ -24,39 +24,52 @@ import TeamSection from "./Sections/TeamSection.js";
 const dashboardRoutes = [];
 
 const useStyles = makeStyles(styles);
+let primaryColor = "#17242c";
+let wordColor = "#3f566d";
+let secColor = "#c6c6c6";
 
 export default function LandingPage(props) {
   const classes = useStyles();
   const { ...rest } = props;
   return (
-    <div style={{background:'#6a040f'}}>
+    <div style={{ background: primaryColor }}>
+
+      {/* HEADER SECTION */}
       <Header
-        color="transparent" 
+        color="transparent"
         routes={dashboardRoutes}
         // rightLinks={<HeaderLinks />}
         fixed
         changeColorOnScroll={{
           height: 50,
-          color: "white"
+          color: primaryColor
         }}
         {...rest}
       />
-      <Parallax style={{height:'300px'}} filter image={require("assets/img/landing-bg.jpg")}>
-        <div className={classes.container}>
-          <GridContainer>
-            {/* <GridItem xs={12} sm={12} md={6}> */}
-              <h1 style={{color:'#f4a261'}}> Welcome to DreamLegacy!</h1>
-              
-            {/* </GridItem> */}
-          </GridContainer>
+
+      {/* HEADER SECTION END */}
+
+
+      {/* HEADING SECTION START */}
+      <section xs={12}md={6}>
+        <div style={{ backgroundImage: "url(" + hero + ")", paddingTop: "40px", paddingBottom: "40px" }}>
+
+
+          <h1 style={{ color: "white", fontFamily: "serif", textAlign: "center" }}> Welcome to DreamLegacy!</h1>
+
         </div>
-      </Parallax>
-      <div className={classNames(classes.main, classes.mainRaised)}style={{background:'#6a040f'}}>
-        <div className={classes.container} style={{color:'white'}}>
-          <TeamSection/>         
-          <ProductSection/>
-        </div>
-      </div>
+      </section>
+
+      {/* HEADING SECTION END */}
+
+
+
+
+
+      <TeamSection />
+      {/* <ProductSection /> */}
+
+
       <Footer />
     </div>
   );

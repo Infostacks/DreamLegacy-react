@@ -47,8 +47,8 @@ import * as _ from 'lodash';
 
 const StyledTableCell = withStyles((theme) => ({
   head: {
-    backgroundColor:"#c6c6c6",
-    color: wordColor,
+    backgroundColor:"#d7263d",
+    color: textColor,
     fontWeight:"1000",
     fontFamily:"serif"
   },
@@ -88,9 +88,12 @@ const rows = [
 // });
 
 const dashboardRoutes = [];
-let primaryColor= "#17242c";
-let wordColor= "#3f566d";
-let secColor="#c6c6c6";
+let primaryColor = "#2e294e";
+let wordColor = "#3f566d";
+let secColor = "#f46036";
+let headingColor ="#c5d86d";
+let textColor="white";
+let backColor="#2e294e"
 // const StyledTableCell = withStyles((theme) => ({
 //   head: {
 //     backgroundColor:"#ffbe0b",
@@ -223,14 +226,10 @@ const useStyles = makeStyles((theme) => ({
         <div style={{ backgroundImage: "url(" + hero + ")", paddingTop: "40px", paddingBottom: "40px"  }}>
 
           <div style={{ color: "#ffbe0b" }} >
-            {/* 
-          // USE MATERIAL COMPONENTS
-          <Typography variant="h1" component="h2">
-  h1. Heading
-</Typography> */ }
-            <h2 style={{ color: secColor, textAlign: 'center', fontWeight: '1000',fontFamily:"serif" }}>Next Drawing
+     
+            <h2 style={{ color: textColor, textAlign: 'center', fontWeight: '1000',fontFamily:"serif" }}>Next Drawing
             </h2>
-            <h3 style={{ textAlign: 'center', color: secColor }}>
+            <h3 style={{ textAlign: 'center', color: textColor }}>
               {props.pdata && props.pdata.field_next_draw_date && props.pdata.field_next_draw_date} </h3>
           </div>
           <div>
@@ -240,8 +239,8 @@ const useStyles = makeStyles((theme) => ({
                 <Card style={{ background: secColor, width: "450px" }} xs={12} md={6}>
                   <CardBody>
                     <div>
-                      <h2 style={{ textAlign: 'center', color: wordColor }}>Estimated Jackpot</h2>
-                      <h3 style={{ margin: "0px 80px 25px", color: wordColor, textAlign: "center" }}> {props.pdata && props.pdata.field_prize_amount && props.pdata.field_prize_amount} </h3>
+                      <h2 style={{ textAlign: 'center', color: textColor }}>Estimated Jackpot</h2>
+                      <h3 style={{ margin: "0px 80px 25px", color: textColor, textAlign: "center" }}> {props.pdata && props.pdata.field_prize_amount && props.pdata.field_prize_amount} </h3>
                     </div>
                   </CardBody>
                 </Card>
@@ -249,12 +248,12 @@ const useStyles = makeStyles((theme) => ({
               <Grid item md={6} xs={12}>
                 <Card style={{ background: secColor, width: "450px" }}>
                   <CardBody>
-                    <h4 style={{ color: wordColor, textAlign: "center" }}>Winning Numbers - {props.pools && props.pool.field_draw_date}
+                    <h4 style={{ color: textColor, textAlign: "center" }}>Winning Numbers - {props.pools && props.pool.field_draw_date}
                     </h4>
                     {props.pool &&
                       props.pool.field_winning_numbers.split(',').map((y, index) => (
                         < div class="numbers-ball" style={{
-                          backgroundColor: wordColor,
+                          backgroundColor: primaryColor,
                           width: '35px',
                           height: '35px',
                           borderRadius: '20px',
@@ -271,7 +270,7 @@ const useStyles = makeStyles((theme) => ({
                           {y}
                         </div>
                       ))}
-                    <h3 style={{ color: wordColor, marginLeft: '100px' }}>PowerPlay 3x</h3>
+                    <h3 style={{ color: textColor, marginLeft: '100px' }}>PowerPlay 3x</h3>
                   </CardBody>
                 </Card>
               </Grid>
@@ -287,11 +286,11 @@ const useStyles = makeStyles((theme) => ({
 
  {/* Total Winner Section */}
  
-      <section style={{ paddingTop: "20px", paddingBottom: "40px", backgroundColor: '#000000de' }} >
+      <section style={{ paddingTop: "20px", paddingBottom: "40px", backgroundColor: primaryColor }} >
         <div style={{ color: "#ffbe0b" }}>
-          <h2 style={{ color: secColor, textAlign: 'center', fontWeight: '1000', fontFamily: "serif" }}>Total Winners
+          <h2 style={{ color: textColor, textAlign: 'center', fontWeight: '1000', fontFamily: "serif" }}>Total Winners
             </h2>
-          <h3 style={{ textAlign: 'center', color: secColor }}>
+          <h3 style={{ textAlign: 'center', color: textColor }}>
             {props.pdata && props.pdata.field_next_draw_date && props.pdata.field_next_draw_date} </h3>
         </div>
         <div style={{ textAlign: "-webkit-center" }}>
@@ -422,7 +421,7 @@ const useStyles = makeStyles((theme) => ({
 {/* Table Section */}
 
       <div style={{ textAlign: "-webkit-center" }}>
-        <section style={{ backgroundColor: "#4b4b4b", paddingTop: "50px",paddingBottom:"50px" }}>
+        <section style={{ backgroundColor: secColor, paddingTop: "50px",paddingBottom:"50px" }}>
           <TableContainer component={Paper} style={{ background: primaryColor, width: "85%" }}>
             <Table className={classes.table} aria-label="customized table">
               <TableHead>
@@ -439,7 +438,7 @@ const useStyles = makeStyles((theme) => ({
               <TableBody >
                 {rows.map((row) => (
                   <StyledTableRow key={row.name}>
-                    <StyledTableCell align="right" style={{ color: secColor }}>
+                    <StyledTableCell align="right" style={{ color: textColor }}>
                     {row.name && row.name.map((y, index) => (
                   _.last(row.name) == y ?
                       < div class="numbers-ball" style={{
@@ -477,12 +476,12 @@ const useStyles = makeStyles((theme) => ({
                     ))}
                     </StyledTableCell>
                     
-                    <StyledTableCell align="right" style={{ color: secColor }}>{row.prizes}</StyledTableCell>
-                    <StyledTableCell align="right" style={{ color: secColor }}>{row.powerplay2x}</StyledTableCell>
-                    <StyledTableCell align="right" style={{ color: secColor }}>{row.powerplay3x}</StyledTableCell>
-                    <StyledTableCell align="right" style={{ color: secColor }}>{row.powerplay4x}</StyledTableCell>
-                    <StyledTableCell align="right" style={{ color: secColor }} >{row.powerplay5x}</StyledTableCell>
-                    <StyledTableCell align="right" style={{ color: secColor }} >{row.powerplay10x}</StyledTableCell>
+                    <StyledTableCell align="right" style={{ color: textColor }}>{row.prizes}</StyledTableCell>
+                    <StyledTableCell align="right" style={{ color: textColor }}>{row.powerplay2x}</StyledTableCell>
+                    <StyledTableCell align="right" style={{ color: textColor }}>{row.powerplay3x}</StyledTableCell>
+                    <StyledTableCell align="right" style={{ color: textColor }}>{row.powerplay4x}</StyledTableCell>
+                    <StyledTableCell align="right" style={{ color: textColor }} >{row.powerplay5x}</StyledTableCell>
+                    <StyledTableCell align="right" style={{ color: textColor }} >{row.powerplay10x}</StyledTableCell>
                   </StyledTableRow>
                 ))}
               </TableBody>
